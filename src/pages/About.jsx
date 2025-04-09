@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import images from "./Assets/index.js";
+import images from "../components/Assets/index.js";
 
 const About = () => {
   const skills = [

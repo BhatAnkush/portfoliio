@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Footer from './components/Footer';
+import Navbar from './pages/Navbar';
+import Hero from './pages/Hero';
+import About from './pages/About';
+import Experience from './pages/Experience';
+import Projects from './pages/Projects';
+import Footer from './pages/Footer';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

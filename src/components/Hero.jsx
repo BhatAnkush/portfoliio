@@ -44,9 +44,9 @@ const Hero = () => {
             color: 'var(--text-secondary)',
             fontSize: '1.2rem'
           }}>
-            I'm a software engineer specializing in building exceptional digital experiences. 
+            I'm a software engineer-Intern specializing in building exceptional digital experiences. 
             Currently, I'm focused on building accessible, human-centered products at{' '}
-            <a href="https://www.niveussolutions.com/" style={{ color: 'var(--accent-color)' }} target="_blank"> Niveus Solutions part of NTT Data</a>.
+            <a href="https://www.niveussolutions.com/" style={{ color: 'var(--accent-color)' }} target="_blank"> @ Niveus Solutions part of NTT Data</a>.
           </p>
           
           <div className="fade-in" style={{ marginTop: '50px' }}>

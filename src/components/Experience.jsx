@@ -49,29 +49,25 @@ const Experience = () => {
         
         <div style={{
           display: 'flex',
-          flexDirection: window.innerWidth <= 768 ? 'column' : 'row',
+          flexDirection: 'column',
           maxWidth: '700px',
           margin: '0 auto'
         }} className="fade-in">
           <div style={{
-            position: 'relative',
-            zIndex: 3,
-            width: window.innerWidth <= 768 ? '100%' : '125px',
-            marginRight: window.innerWidth <= 768 ? 0 : '20px',
-            marginBottom: window.innerWidth <= 768 ? '30px' : 0
+            display: 'flex',
+            justifyContent: 'center',
+            marginBottom: '30px'
           }}>
             <ul style={{
               display: 'flex',
-              flexDirection: window.innerWidth <= 768 ? 'row' : 'column',
-              width: '100%',
-              marginBottom: 0,
-              borderLeft: window.innerWidth <= 768 ? 'none' : '2px solid var(--text-secondary)',
-              borderBottom: window.innerWidth <= 768 ? '2px solid var(--text-secondary)' : 'none'
+              flexDirection: 'row',
+              listStyle: 'none',
+              padding: '0',
+              margin: '0',
+              borderBottom: '2px solid var(--text-secondary)'
             }} role="tablist" aria-label="Job tabs">
               {jobs.map((job, i) => (
-                <li key={i} style={{
-                  paddingLeft: window.innerWidth <= 768 ? 0 : '20px'
-                }}>
+                <li key={i}>
                   <button
                     id={`tab-${i}`}
                     role="tab"
@@ -81,15 +77,15 @@ const Experience = () => {
                     style={{
                       backgroundColor: activeTabId === i ? 'var(--secondary-color)' : 'transparent',
                       color: activeTabId === i ? 'var(--accent-color)' : 'var(--text-secondary)',
-                      padding: window.innerWidth <= 768 ? '10px 20px' : '10px 20px 10px 0',
-                      textAlign: 'left',
-                      width: '100%',
-                      height: '42px',
-                      borderLeft: window.innerWidth <= 768 ? 'none' : activeTabId === i ? '2px solid var(--accent-color)' : 'none',
-                      marginLeft: window.innerWidth <= 768 ? 0 : activeTabId === i ? '-2px' : 0,
+                      padding: '10px 20px',
+                      marginRight: '10px',
+                      borderBottom: activeTabId === i ? '2px solid var(--accent-color)' : 'none',
+                      marginBottom: activeTabId === i ? '-2px' : '0',
                       fontFamily: 'var(--font-mono)',
                       fontSize: '13px',
-                      transition: 'var(--transition)'
+                      transition: 'var(--transition)',
+                      border: 'none',
+                      cursor: 'pointer'
                     }}
                   >
                     {job.company}
@@ -99,7 +95,8 @@ const Experience = () => {
             </ul>
           </div>
 
-          <div style={{ marginLeft: '1rem' }}>
+          {/* Job details - Stacked vertically */}
+          <div>
             {jobs.map((job, i) => (
               <div
                 key={i}
@@ -107,7 +104,13 @@ const Experience = () => {
                 role="tabpanel"
                 aria-labelledby={`tab-${i}`}
                 style={{
-                  display: activeTabId === i ? 'block' : 'none'
+                  display: activeTabId === i ? 'block' : 'none',
+                  padding: '20px',
+                  border: '1px solid var(--text-secondary)',
+                  borderRadius: '4px',
+                  transition: 'var(--transition)',
+                  backgroundColor: 'var(--secondary-color)',
+                  opacity: activeTabId === i ? 1 : 0
                 }}
               >
                 <h3 style={{
@@ -131,9 +134,9 @@ const Experience = () => {
                   {job.date}
                 </p>
 
-                <ul style={{ padding: 0 }}>
-                  {job.description.map((point, i) => (
-                    <li key={i} style={{
+                <ul style={{ padding: 0, listStyle: 'none' }}>
+                  {job.description.map((point, j) => (
+                    <li key={j} style={{
                       position: 'relative',
                       paddingLeft: '30px',
                       marginBottom: '10px',

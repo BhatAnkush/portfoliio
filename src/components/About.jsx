@@ -26,7 +26,7 @@ const About = () => {
         }}>
           <div className="fade-in">
             <p>
-            Hello! I'm Ankush Ananth Bhat, a Web developer with a strong foundation in Information Science. 
+            Hello! I'm <span style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>Ankush Ananth Bhat</span>, a Full-Stack Web developer with a strong foundation in Information Science. 
               Having completed my Bachelor's in Engineering from Sahyadri College of Engineering & Management, 
               Mangaluru, I am passionate about creating impactful web applications and solutions, particularly 
               with technologies like React.js and Node.js.

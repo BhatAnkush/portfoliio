@@ -68,7 +68,7 @@ const About = () => {
                 Ankush Ananth Bhat
               </span>
               , a Full-Stack Web developer with a strong foundation in
-              Information Science...
+              Information Science.
             </p>
 
             <p>
@@ -90,9 +90,8 @@ const About = () => {
                 {" "}
                 Niveus Solutions part of NTT Data
               </a>
-              ,
             </p>
-
+            <div style={{ height: "10px" }}></div>
             <p>Here are a few technologies I've been working with recently:</p>
 
             <ul

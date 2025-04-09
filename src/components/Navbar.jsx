@@ -93,23 +93,28 @@ const Navbar = () => {
           padding: isMobile ? '2rem' : '0'
         }} className="nav-links">
           <li style={{ margin: '0 1.5rem', padding: '0.5rem 0', fontSize: '0.9rem' }}>
+            <a href="#home" onClick={(e) => handleNavClick(e, 'home')}>
+              <span style={{ color: 'var(--accent-color)', fontFamily: 'var(--font-mono)' }}>01. </span>Home
+            </a>
+          </li>
+          <li style={{ margin: '0 1.5rem', padding: '0.5rem 0', fontSize: '0.9rem' }}>
             <a href="#about" onClick={(e) => handleNavClick(e, 'about')}>
-              <span style={{ color: 'var(--accent-color)', fontFamily: 'var(--font-mono)' }}>01. </span>About
+              <span style={{ color: 'var(--accent-color)', fontFamily: 'var(--font-mono)' }}>02. </span>About
             </a>
           </li>
           <li style={{ margin: '0 1.5rem', padding: '0.5rem 0', fontSize: '0.9rem' }}>
             <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')}>
-              <span style={{ color: 'var(--accent-color)', fontFamily: 'var(--font-mono)' }}>02. </span>Experience
+              <span style={{ color: 'var(--accent-color)', fontFamily: 'var(--font-mono)' }}>03. </span>Experience
             </a>
           </li>
           <li style={{ margin: '0 1.5rem', padding: '0.5rem 0', fontSize: '0.9rem' }}>
             <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>
-              <span style={{ color: 'var(--accent-color)', fontFamily: 'var(--font-mono)' }}>03. </span>Projects
+              <span style={{ color: 'var(--accent-color)', fontFamily: 'var(--font-mono)' }}>04. </span>Projects
             </a>
           </li>
           <li style={{ margin: '0 1.5rem', padding: '0.5rem 0', fontSize: '0.9rem' }}>
             <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>
-              <span style={{ color: 'var(--accent-color)', fontFamily: 'var(--font-mono)' }}>04. </span>Contact
+              <span style={{ color: 'var(--accent-color)', fontFamily: 'var(--font-mono)' }}>05. </span>Contact
             </a>
           </li>
           <li style={{ marginLeft: '1.5rem' }}>

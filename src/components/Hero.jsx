@@ -25,7 +25,7 @@ const Hero = () => {
             color: 'var(--white)',
             lineHeight: '1.1'
           }}>
-            John Smith.
+            Ankush Bhat.
           </h1>
           
           <h2 className="fade-in" style={{

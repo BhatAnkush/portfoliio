@@ -110,7 +110,7 @@ const About = () => {
                 }}>
                   <img 
                     src="https://via.placeholder.com/300x300" 
-                    alt="John Smith" 
+                    alt="Ankush Bhat" 
                     style={{
                       borderRadius: '4px',
                       maxWidth: '100%',

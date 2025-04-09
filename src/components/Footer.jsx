@@ -93,7 +93,7 @@ const Footer = () => {
               }
             }}
           >
-            <p>Designed & Built by John Smith</p>
+            <p>Designed & Built by Ankush Bhat</p>
           </a>
         </div>
       </div>

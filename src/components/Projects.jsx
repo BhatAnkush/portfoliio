@@ -9,7 +9,7 @@ const Projects = () => {
       title: 'E-Commerce Platform',
       description: 'A full-stack e-commerce application with React, Node.js, and MongoDB. Features include product browsing, filtering, cart management, and payment processing.',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
-      image: 'https://via.placeholder.com/600x340',
+      // image: 'https://via.placeholder.com/600x340',
       github: '#',
       external: '#',
       category: 'fullstack'
@@ -18,7 +18,7 @@ const Projects = () => {
       title: 'Social Media Dashboard',
       description: 'A responsive dashboard that displays social media statistics and allows for content management across multiple platforms.',
       technologies: ['React', 'Redux', 'Chart.js', 'CSS Grid'],
-      image: 'https://via.placeholder.com/600x340',
+      // image: 'https://via.placeholder.com/600x340',
       github: '#',
       external: '#',
       category: 'frontend'
@@ -27,7 +27,7 @@ const Projects = () => {
       title: 'Task Management API',
       description: 'A RESTful API for task management with authentication, task CRUD operations, and team collaboration features.',
       technologies: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-      image: 'https://via.placeholder.com/600x340',
+      // image: 'https://via.placeholder.com/600x340',
       github: '#',
       external: '#',
       category: 'backend'
@@ -36,7 +36,7 @@ const Projects = () => {
       title: 'Portfolio Website',
       description: 'A responsive personal portfolio website built with React and custom CSS animations.',
       technologies: ['React', 'CSS', 'Framer Motion'],
-      image: 'https://via.placeholder.com/600x340',
+      // image: 'https://via.placeholder.com/600x340',
       github: '#',
       external: '#',
       category: 'frontend'
@@ -45,7 +45,7 @@ const Projects = () => {
       title: 'Weather Application',
       description: 'A weather application that provides current weather data and forecasts for any location using the OpenWeather API.',
       technologies: ['React', 'Context API', 'OpenWeather API'],
-      image: 'https://via.placeholder.com/600x340',
+      // image: 'https://via.placeholder.com/600x340',
       github: '#',
       external: '#',
       category: 'frontend'
@@ -54,7 +54,7 @@ const Projects = () => {
       title: 'Blog CMS',
       description: 'A content management system for blogs with features like article creation, editing, tagging, and publishing.',
       technologies: ['React', 'Node.js', 'GraphQL', 'PostgreSQL'],
-      image: 'https://via.placeholder.com/600x340',
+      // image: 'https://via.placeholder.com/600x340',
       github: '#',
       external: '#',
       category: 'fullstack'

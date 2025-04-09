@@ -72,7 +72,7 @@ const Navbar = () => {
         fontSize: '1.5rem',
         color: 'var(--accent-color)'
       }}>
-        <a href="#home">JS.</a>
+        <a href="#home">AB.</a>
       </div>
       
       <nav style={{

@@ -1,14 +1,15 @@
-
+import images from "./Assets/index.js"
 const About = () => {
   const skills = [
-    'JavaScript (ES6+)', 
-    'TypeScript', 
-    'React', 
+    'JavaScript (ES6+)',  
+    'React.js', 
     'Node.js', 
     'Express', 
-    'MongoDB', 
-    'GraphQL',
-    'Next.js'
+    'PostgreSQL',
+    'RESTful API', 
+    'HTML5/CSS3',
+    'Git/Github',
+    
   ];
 
   return (
@@ -25,19 +26,15 @@ const About = () => {
         }}>
           <div className="fade-in">
             <p>
-              Hello! My name is John and I enjoy creating things that live on the internet. 
-              My interest in web development started back in 2012 when I decided to try editing 
-              custom Tumblr themes — turns out hacking together a custom reblog button taught 
-              me a lot about HTML & CSS!
+            Hello! I'm Ankush Ananth Bhat, a Web developer with a strong foundation in Information Science. 
+              Having completed my Bachelor's in Engineering from Sahyadri College of Engineering & Management, 
+              Mangaluru, I am passionate about creating impactful web applications and solutions, particularly 
+              with technologies like React.js and Node.js.
             </p>
             <p>
               Fast-forward to today, and I've had the privilege of working at 
-              <a href="#" style={{ color: 'var(--accent-color)' }}> an advertising agency</a>,
-              <a href="#" style={{ color: 'var(--accent-color)' }}> a start-up</a>,
-              <a href="#" style={{ color: 'var(--accent-color)' }}> a huge corporation</a>, and
-              <a href="#" style={{ color: 'var(--accent-color)' }}> a student-led design studio</a>.
-              My main focus these days is building accessible, inclusive products and digital 
-              experiences at <a href="#" style={{ color: 'var(--accent-color)' }}>Acme Inc</a> for a variety of clients.
+              <a href="https://evoluteiq.com/" style={{ color: 'var(--accent-color)' }} target="_blank"> EvoluteIQ</a>,and currently working at 
+              <a href="https://www.niveussolutions.com/" style={{ color: 'var(--accent-color)' }} target="_blank"> Niveus Solutions part of NTT Data</a>,
             </p>
             <p>
               Here are a few technologies I've been working with recently:
@@ -109,7 +106,7 @@ const About = () => {
                   }
                 }}>
                   <img 
-                    src="https://via.placeholder.com/300x300" 
+                    src={images.aboutme}
                     alt="Ankush Bhat" 
                     style={{
                       borderRadius: '4px',

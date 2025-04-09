@@ -7,8 +7,10 @@ const About = () => {
     'Express', 
     'PostgreSQL',
     'RESTful API', 
-    'HTML5/CSS3',
+    'HTML5',
+    'CSS3',
     'Git/Github',
+    'Google Cloud',
     
   ];
 

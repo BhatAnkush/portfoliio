@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 const Experience = () => {
@@ -6,39 +5,31 @@ const Experience = () => {
   
   const jobs = [
     {
-      title: 'Senior Software Engineer',
-      company: 'Acme Inc',
-      url: '#',
-      date: 'January 2021 - Present',
+      title: 'Software Engineer-Intern',
+      company: 'Niveus Solutions',
+      logo: 'https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png', // Add path to your logo image
+      url: 'https://www.niveussolutions.com/',
+      date: 'November 2024 - Present',
       description: [
-        'Developed and maintained code for in-house and client websites primarily using HTML, CSS, JavaScript, React, and Node.js',
-        'Manually tested sites in various browsers and mobile devices to ensure cross-browser compatibility and responsiveness',
-        'Interfaced with clients on a weekly basis, providing technological expertise'
+        'Developed responsive UI components using React JS with Ant Design and PrimeReact libraries, ensuring consistentdesign patterns and optimal performance.',
+'Contributed to the development of library for multiple functions of a table component.',
+'Collaborated with cross-functional teams to gather requirements, debug issues, and implement front-end solutionsaligned with needs in QA Data Validation for the Data Mod Team & Cloud Manager for the CloudOps Team.'
       ]
     },
     {
-      title: 'Front-End Developer',
-      company: 'TechStart',
-      url: '#',
-      date: 'March 2019 - December 2020',
+      title: 'Intern',
+      company: 'EvoluteIQ',
+      logo: 'https://evoluteiq.com/wp-content/uploads/2021/12/EvoluteIQ-logo-180x51.png',
+      url: 'https://evoluteiq.com/',
+      date: 'February 2024 - April 2024',
       description: [
-        'Developed and shipped highly interactive web applications for Apple Music using Ember.js',
-        'Built and shipped the Apple Music Extension within Facebook Messenger leveraging third-party and internal APIs',
-        "Architected and implemented the front-end of Apple Music's embeddable web player widget, which lets users log in and listen to full songs in the browser"
-      ]
-    },
-    {
-      title: 'UI/UX Designer',
-      company: 'WebStudio',
-      url: '#',
-      date: 'July 2017 - February 2019',
-      description: [
-        'Developed and maintained code for in-house and client websites primarily using HTML, CSS, and jQuery',
-        'Manually tested sites in various browsers and mobile devices to ensure cross-browser compatibility and responsiveness',
-        'Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more'
+        'Worked on automating business processes using the EvoluteIQ Hyperautomation platform combining RPA, AI, ML, and workflow orchestration.',
+        'Assisted in building UI components and integrations for low-code/no-code automation dashboards using React and Node.js.',
+        'Collaborated with senior engineers to streamline data flows and automate repetitive tasks, reducing manual effort by over 30%.'
       ]
     }
   ];
+    
 
   return (
     <section id="experience" style={{ padding: '100px 0' }}>
@@ -53,6 +44,8 @@ const Experience = () => {
           maxWidth: '700px',
           margin: '0 auto'
         }} className="fade-in">
+          
+          {/* Vertical tabs - Company logos */}
           <div style={{
             display: 'flex',
             justifyContent: 'center',
@@ -75,20 +68,51 @@ const Experience = () => {
                     aria-controls={`panel-${i}`}
                     onClick={() => setActiveTabId(i)}
                     style={{
-                      backgroundColor: activeTabId === i ? 'var(--secondary-color)' : 'transparent',
-                      color: activeTabId === i ? 'var(--accent-color)' : 'var(--text-secondary)',
+                      backgroundColor: 'transparent',
                       padding: '10px 20px',
                       marginRight: '10px',
                       borderBottom: activeTabId === i ? '2px solid var(--accent-color)' : 'none',
                       marginBottom: activeTabId === i ? '-2px' : '0',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '13px',
                       transition: 'var(--transition)',
                       border: 'none',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center'
                     }}
                   >
-                    {job.company}
+                    <div style={{
+                      width: '50px',
+                      height: '50px',
+                      marginBottom: '8px',
+                      borderRadius: '50%',
+                      overflow: 'hidden',
+                      border: activeTabId === i ? '2px solid var(--accent-color)' : '2px solid transparent',
+                      padding: '2px',
+                      transition: 'var(--transition)'
+                    }}>
+                      <img 
+                        src={job.logo}
+                        alt={`${job.company} logo`}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'contain'
+                        }}
+                        onError={(e) => {
+                          // Fallback for missing images
+                          e.target.src = './Assets/logos/placeholder-logo.png';
+                        }}
+                      />
+                    </div>
+                    <span style={{
+                      color: activeTabId === i ? 'var(--accent-color)' : 'var(--text-secondary)',
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '13px',
+                      transition: 'var(--transition)'
+                    }}>
+                      {job.company}
+                    </span>
                   </button>
                 </li>
               ))}
@@ -113,28 +137,58 @@ const Experience = () => {
                   opacity: activeTabId === i ? 1 : 0
                 }}
               >
-                <h3 style={{
-                  fontSize: '1.25rem',
-                  fontWeight: 500,
-                  marginBottom: '5px'
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '15px'
                 }}>
-                  <span>{job.title}</span>
-                  <span style={{ color: 'var(--accent-color)' }}> @ </span>
-                  <a href={job.url} style={{ color: 'var(--accent-color)' }}>
-                    {job.company}
-                  </a>
-                </h3>
+                  <div style={{
+                    width: '40px',
+                    height: '40px',
+                    marginRight: '15px',
+                    borderRadius: '4px',
+                    overflow: 'hidden'
+                  }}>
+                    <img 
+                      src={job.logo}
+                      alt={`${job.company} logo`}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain'
+                      }}
+                      onError={(e) => {
+                        // Fallback for missing images
+                        e.target.src = './Assets/logos/placeholder-logo.png';
+                      }}
+                    />
+                  </div>
+                  
+                  <div>
+                    <h3 style={{
+                      fontSize: '1.25rem',
+                      fontWeight: 500,
+                      marginBottom: '5px'
+                    }}>
+                      <span>{job.title}</span>
+                      <span style={{ color: 'var(--accent-color)' }}> @ </span>
+                      <a href={job.url} style={{ color: 'var(--accent-color)' }}>
+                        {job.company}
+                      </a>
+                    </h3>
 
-                <p style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.8rem',
-                  marginBottom: '25px',
-                  color: 'var(--text-secondary)'
-                }}>
-                  {job.date}
-                </p>
+                    <p style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.8rem',
+                      margin: 0,
+                      color: 'var(--text-secondary)'
+                    }}>
+                      {job.date}
+                    </p>
+                  </div>
+                </div>
 
-                <ul style={{ padding: 0, listStyle: 'none' }}>
+                <ul style={{ padding: 0, listStyle: 'none', marginTop: '20px' }}>
                   {job.description.map((point, j) => (
                     <li key={j} style={{
                       position: 'relative',

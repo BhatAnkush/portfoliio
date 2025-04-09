@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import images from "../components/Assets/index.js";
+import assets from "../components/Assets/index.js";
 
 const About = () => {
   const skills = [
@@ -173,7 +173,7 @@ const About = () => {
                   }}
                 >
                   <img
-                    src={images.aboutme}
+                    src={assets.aboutme}
                     alt="Ankush Bhat"
                     style={{
                       width: "100%",

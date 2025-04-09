@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 768);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -12,11 +13,17 @@ const Navbar = () => {
         setScrolled(isScrolled);
       }
     };
+    
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
-    document.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
     
     return () => {
-      document.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, [scrolled]);
 
@@ -41,8 +48,10 @@ const Navbar = () => {
     }
   };
 
+  const isMobile = windowWidth <= 768;
+
   return (
-    <header className={`navbar ${scrolled ? 'scrolled' : ''}`} style={{
+    <header className="navbar" style={{
       position: 'fixed',
       top: 0,
       width: '100%',
@@ -71,18 +80,17 @@ const Navbar = () => {
         alignItems: 'center'
       }}>
         <ul style={{
-          display: mobileMenuOpen ? 'flex' : 'none',
-          flexDirection: window.innerWidth <= 768 ? 'column' : 'row',
-          position: window.innerWidth <= 768 ? 'absolute' : 'static',
-          top: window.innerWidth <= 768 ? '70px' : 'auto',
-          right: window.innerWidth <= 768 ? '0' : 'auto',
-          backgroundColor: window.innerWidth <= 768 ? 'var(--secondary-color)' : 'transparent',
-          width: window.innerWidth <= 768 ? '70%' : 'auto',
-          height: window.innerWidth <= 768 ? '100vh' : 'auto',
-          alignItems: window.innerWidth <= 768 ? 'center' : 'center',
-          justifyContent: window.innerWidth <= 768 ? 'flex-start' : 'center',
-          padding: window.innerWidth <= 768 ? '2rem' : '0',
-          '@media (min-width: 769px)': { display: 'flex' }
+          display: isMobile ? (mobileMenuOpen ? 'flex' : 'none') : 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          position: isMobile ? 'absolute' : 'static',
+          top: isMobile ? '70px' : 'auto',
+          right: isMobile ? '0' : 'auto',
+          backgroundColor: isMobile ? 'var(--secondary-color)' : 'transparent',
+          width: isMobile ? '70%' : 'auto',
+          height: isMobile ? '100vh' : 'auto',
+          alignItems: isMobile ? 'center' : 'center',
+          justifyContent: isMobile ? 'flex-start' : 'center',
+          padding: isMobile ? '2rem' : '0'
         }} className="nav-links">
           <li style={{ margin: '0 1.5rem', padding: '0.5rem 0', fontSize: '0.9rem' }}>
             <a href="#about" onClick={(e) => handleNavClick(e, 'about')}>
@@ -120,8 +128,7 @@ const Navbar = () => {
           className="mobile-menu-btn"
           onClick={toggleMenu}
           style={{
-            display: 'none',
-            '@media (max-width: 768px)': { display: 'block' },
+            display: isMobile ? 'block' : 'none',
             fontSize: '1.5rem',
             color: 'var(--accent-color)',
             background: 'none',

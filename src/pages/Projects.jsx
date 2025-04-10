@@ -77,11 +77,10 @@ const Projects = () => {
     },
   ];
 
-  const filteredProjects =
-    filter === "all"
-      ? projects
-      : projects.filter((project) => project.category === filter);
-
+  const filteredProjects = projects.filter((project) => {
+    if (filter === "all") return true;
+    return project.category === filter;
+  });
   return (
     <section id="projects" style={{ padding: "100px 0" }}>
       <div className="container">
@@ -267,7 +266,6 @@ const Projects = () => {
             >
               Frontend
             </button>
-
             <button
               className={`filter-btn ${filter === "fullstack" ? "active" : ""}`}
               onClick={() => setFilter("fullstack")}

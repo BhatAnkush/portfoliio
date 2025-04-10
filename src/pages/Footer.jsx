@@ -28,6 +28,49 @@ const Footer = () => {
 
   return (
     <footer style={{ backgroundColor: "var(--secondary-color)" }}>
+      <style>
+        {`
+          .contact-btn {
+            padding: 1.25rem 1.75rem;
+            font-family: var(--font-mono);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+          }
+          
+          .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -10px rgba(100, 255, 218, 0.3);
+          }
+          
+          .social-link {
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+          }
+          
+          .social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+          }
+          
+          .footer-credit {
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+          }
+          
+          .footer-credit:hover {
+            color: var(--accent-color);
+          }
+        `}
+      </style>
+
       <div
         id="contact"
         style={{
@@ -99,19 +142,7 @@ const Footer = () => {
           >
             <a
               href="mailto:ankushbhataab@gmail.com"
-              className="btn btn-primary"
-              style={{
-                padding: "1.25rem 1.75rem",
-                fontFamily: "var(--font-mono)",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "10px",
-                transition: "all 0.3s ease",
-                ":hover": {
-                  transform: "translateY(-3px)",
-                  boxShadow: "0 10px 20px -10px rgba(100, 255, 218, 0.3)",
-                },
-              }}
+              className="btn btn-primary contact-btn"
             >
               <FiMail size={18} />
               Say Hello
@@ -149,19 +180,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.name}
-              style={{
-                color: "var(--text-secondary)",
-                transition: "all 0.3s ease",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "5px",
-                textDecoration: "none",
-                ":hover": {
-                  color: "var(--accent-color)",
-                  transform: "translateY(-3px)",
-                },
-              }}
+              className="social-link"
             >
               {link.icon}
               <span style={{ fontSize: "0.7rem" }}>{link.name}</span>
@@ -180,16 +199,12 @@ const Footer = () => {
             href="https://github.com/BhatAnkush"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              color: "var(--text-secondary)",
-              transition: "all 0.3s ease",
-              textDecoration: "none",
-              ":hover": {
-                color: "var(--accent-color)",
-              },
-            }}
+            className="footer-credit"
           >
-            <p>Designed & Built by Ankush Bhat</p>
+            <p>
+              Designed & Built by{" "}
+              <span style={{ fontWeight: "bold" }}>Ankush Bhat</span>
+            </p>
             <p style={{ marginTop: "5px", fontSize: "0.7rem" }}>
               © {new Date().getFullYear()} All Rights Reserved
             </p>

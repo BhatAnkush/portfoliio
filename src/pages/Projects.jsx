@@ -6,14 +6,13 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Simple Calculator",
+      title: "Suny Art School",
       description:
-        "A simple calculator application developed using Java Swing and event handling, capable of performing basic arithmetic operations such as addition, subtraction, multiplication, and division.",
-      technologies: ["Java", "Swing"],
-      image:
-        "https://repository-images.githubusercontent.com/339268931/54d9dd80-73ae-11eb-81a0-cd36264018e6",
-      github: "https://github.com/BhatAnkush/Simple-Calculator",
-      external: null,
+        "Built a Website for a Art School using HTML, CSS, and JavaScript.",
+      technologies: ["HTML5", "CSS3", "JavaScript"],
+      image: images.suny,
+      github: "https://github.com/dileepbaliga/MyWebSite",
+      external: "https://sunyartschool.netlify.app/",
       category: "frontend",
     },
     {

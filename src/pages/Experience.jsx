@@ -4,7 +4,7 @@ const Experience = () => {
   const jobs = [
     {
       title: "Cloud Explorer-Technology",
-      company: "Niveus Solutions",
+      company: "Niveus Solutions part of NTT Data",
       location: "Mangaluru, Karnataka, India",
       employmentType: "Full-time",
       logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png",
@@ -28,7 +28,7 @@ const Experience = () => {
     },
     {
       title: "Software Engineer-Intern",
-      company: "Niveus Solutions",
+      company: "Niveus Solutions part of NTT Data",
       location: "Mangaluru, Karnataka, India",
       employmentType: "Internship",
       logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png",

@@ -1,167 +1,319 @@
 import { useState } from "react";
 
 const Experience = () => {
-  const [activeTabId, setActiveTabId] = useState(0);
-
   const jobs = [
     {
-      title: "Software Engineer-Intern",
+      title: "Cloud Explorer-Technology",
       company: "Niveus Solutions",
-      logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png", // Add path to your logo image
+      location: "Mangaluru, Karnataka, India",
+      employmentType: "Full-time",
+      logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png",
       url: "https://www.niveussolutions.com/",
-      date: "November 2024 - Present",
+      date: "May 2025 - Present",
+      duration: "1 mo",
+      skills: [
+        "React.js",
+        "Node.js",
+        "Google Cloud Platform (GCP)",
+        "Cascading Style Sheets (CSS)",
+        "Node.js",
+        "PostgreSQL",
+        "Postman",
+      ],
       description: [
         "Developed responsive UI components using React JS with Ant Design and PrimeReact libraries, ensuring consistent design patterns and optimal performance.",
         "Contributed to the development of library for multiple functions of a table component.",
-        "Collaborated with cross-functional teams to gather requirements, debug issues, and implement front-end solutions aligned with needs in QA Data Validation for the Data Mod Team & Cloud Manager for the CloudOps Team.",
+        "Collaborated with cross-functional teams to gather requirements, debug issues, and implement front-end and back-end solutions aligned with needs of the project.",
       ],
+    },
+    {
+      title: "Software Engineer-Intern",
+      company: "Niveus Solutions",
+      location: "Mangaluru, Karnataka, India",
+      employmentType: "Internship",
+      logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png",
+      url: "https://www.niveussolutions.com/",
+      date: "November 2024 - May 2025",
+      duration: "6 mos",
+      skills: [
+        "React.js",
+        "Node.js",
+        "Google Cloud Platform (GCP)",
+        "Cascading Style Sheets (CSS)",
+        "Node.js",
+        "PostgreSQL",
+      ],
+      description: [
+        "Developed responsive UI components using React JS with Ant Design and PrimeReact libraries, ensuring consistent design patterns and optimal performance.",
+        "Contributed to the development of library for multiple functions of a table component.",
+        "Collaborated with cross-functional teams to gather requirements, debug issues, and implement front-end and back-end solutions aligned with needs of the project.",
+      ],
+      certificate: "Internship completion certificate",
+      certificateUrl:
+        "https://media.licdn.com/dms/image/v2/D562DAQHuKH1is3Mkxw/profile-treasury-image-shrink_1280_1280/B56Zayqce.GoAQ-/0/1746754194415?e=1748174400&v=beta&t=n86ZQ5UdA0Z2etn2EJ9rDZltcYHp-FdWNgoLHOHmq7U",
     },
     {
       title: "Intern",
       company: "EvoluteIQ",
-      logo: "https://evoluteiq.com/wp-content/uploads/2021/12/EvoluteIQ-logo-180x51.png",
+      location: "Remote",
+      employmentType: "Internship",
+      logo: "https://evoluteiq.com/wp-content/uploads/2025/02/logo-n-evoluteiq.png",
       url: "https://evoluteiq.com/",
       date: "February 2024 - April 2024",
+      duration: "3 mos",
+      skills: [
+        "Robotic Process Automation (RPA)",
+        "UiPath",
+        "Automation Anywhere",
+      ],
       description: [
         "Worked on automating business processes using the EvoluteIQ Hyperautomation platform combining RPA, AI, ML, and workflow orchestration.",
         "Assisted in building UI components and integrations for low-code/no-code automation dashboards using React and Node.js.",
         "Collaborated with senior engineers to streamline data flows and automate repetitive tasks, reducing manual effort by over 30%.",
       ],
+      certificate: "Internship completion certificate",
+      certificateUrl:
+        "https://media.licdn.com/dms/image/v2/D562DAQEQONVAKNfCJg/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1719374836225?e=1748174400&v=beta&t=mubmR0avPIqaDfV7L2feUFBksvJTCXsnCMovy2Q-HPI",
     },
   ];
+
+  // State to track expanded skill lists
+  const [expandedSkills, setExpandedSkills] = useState({});
+
+  // Toggle function for expanding/collapsing skills
+  const toggleSkills = (jobIndex) => {
+    setExpandedSkills({
+      ...expandedSkills,
+      [jobIndex]: !expandedSkills[jobIndex],
+    });
+  };
+
+  // Function to display limited skills or all based on expanded state
+  const renderSkills = (skills, jobIndex) => {
+    const isExpanded = expandedSkills[jobIndex];
+    const visibleSkillCount = 2; // Number of skills to show initially
+
+    if (skills.length <= visibleSkillCount || isExpanded) {
+      // Show all skills if there are few skills or if expanded
+      return skills.map((skill, j) => (
+        <div key={j} className="skill-badge">
+          <span className="skill-icon">♦</span>
+          <span>{skill}</span>
+        </div>
+      ));
+    } else {
+      // Show limited skills with "more" button
+      return (
+        <>
+          {skills.slice(0, visibleSkillCount).map((skill, j) => (
+            <div key={j} className="skill-badge">
+              <span className="skill-icon">♦</span>
+              <span>{skill}</span>
+            </div>
+          ))}
+          <div
+            className="skill-badge more-skills"
+            onClick={() => toggleSkills(jobIndex)}
+          >
+            <span>+{skills.length - visibleSkillCount} more</span>
+          </div>
+        </>
+      );
+    }
+  };
 
   return (
     <section id="experience" style={{ padding: "100px 0" }}>
       <div className="container">
         <style>
           {`
-            .logo-container {
-              width: 50px;
-              height: 50px;
-              margin-bottom: 8px;
-              border-radius: 50%;
-              overflow: hidden;
-              background-color: rgba(255, 255, 255, 0.9);
-              padding: 5px;
-              transition: all 0.3s ease;
+            .experience-container {
+              max-width: 800px;
+              margin: 0 auto;
+              font-family: var(--font-sans);
+              color: var(--text-primary);
             }
             
-            .logo-container:hover {
-              transform: translateY(-5px);
-              box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
-            }
-            
-            .logo-container.active {
-              box-shadow: 0 0 0 2px var(--accent-color);
-              transform: translateY(-3px);
-            }
-            
-            .company-tab {
-              background-color: transparent;
-              padding: 10px 20px;
-              margin-right: 10px;
-              border-top: none;
-              border-right: none;
-              border-left: none;
-              border-bottom: 2px solid transparent;
-              cursor: pointer;
+            .experience-header {
               display: flex;
-              flex-direction: column;
+              justify-content: space-between;
               align-items: center;
-              transition: all 0.3s ease;
-              position: relative;
+              margin-bottom: 20px;
+              padding-bottom: 10px;
+              border-bottom: 1px solid var(--text-secondary);
             }
             
-            .company-tab.active {
-              border-bottom: 2px solid var(--accent-color);
-            }
-            
-            .company-tab:hover:not(.active) {
-              border-bottom: 2px solid rgba(100, 255, 218, 0.5);
-            }
-            
-            .job-panel {
-              padding: 25px;
-              border: 1px solid var(--text-secondary);
-              border-radius: 8px;
-              transition: all 0.3s ease;
-              background-color: var(--secondary-color);
-              box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-            }
-            
-            .job-panel:hover {
-              box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
-              transform: translateY(-5px);
-            }
-            
-            .panel-logo-container {
-              width: 40px;
-              height: 40px;
-              margin-right: 15px;
-              border-radius: 4px;
-              overflow: hidden;
-              background-color: rgba(255, 255, 255, 0.9);
-              padding: 5px;
-              transition: all 0.3s ease;
-            }
-            
-            .job-item {
-              position: relative;
-              padding-left: 30px;
-              margin-bottom: 10px;
-              color: var(--text-secondary);
-              transition: transform 0.2s ease;
-            }
-            
-            .job-item:hover {
-              transform: translateX(5px);
-              color: var(--white);
-            }
-            
-            .job-marker {
-              position: absolute;
-              left: 0;
-              color: var(--accent-color);
-              transition: transform 0.2s ease;
-            }
-            
-            .job-item:hover .job-marker {
-              transform: scale(1.2);
-            }
-            
-            .tabs-container {
-              display: flex;
-              flex-direction: row;
-              list-style: none;
-              padding: 0;
+            .experience-title {
+              font-size: 20px;
+              font-weight: 600;
               margin: 0;
-              border-bottom: 2px solid var(--text-secondary);
             }
             
-            .company-name {
-              font-family: var(--font-mono);
-              font-size: 13px;
-              transition: var(--transition);
-            }
-            
-            .company-link {
-              color: var(--accent-color);
-              text-decoration: none;
+            .job-entry {
+              display: flex;
+              margin-bottom: 24px;
+              padding-bottom: 24px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.1);
               position: relative;
-              display: inline-block;
-              transition: all 0.3s ease;
             }
             
-            .company-link:hover {
-              text-decoration: underline;
+            .job-entry:last-child {
+              border-bottom: none;
+            }
+            
+            .logo-container {
+              width: 48px;
+              height: 48px;
+              margin-right: 12px;
+              border-radius: 8px;
+              overflow: hidden;
+              background-color: white;
+              padding: 4px;
+              flex-shrink: 0;
+            }
+            
+            .job-details {
+              flex: 1;
+            }
+            
+            .job-company {
+              font-size: 18px;
+              font-weight: 600;
+              margin-bottom: 4px;
+              color: var(--text-primary);
+            }
+            
+            .job-title {
+              font-size: 16px;
+              font-weight: 500;
+              margin-bottom: 4px;
+              color: var(--text-primary);
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            }
+            
+            .job-meta {
+              font-size: 14px;
+              color: var(--text-secondary);
+              margin-bottom: 4px;
+            }
+            
+            .job-duration {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              margin-bottom: 8px;
+              font-size: 14px;
+              color: var(--text-secondary);
+            }
+            
+            .job-skills {
+              display: flex;
+              align-items: center;
+              margin-top: 12px;
+              margin-bottom: 16px;
+              flex-wrap: wrap;
+              gap: 8px;
+            }
+            
+            .skill-badge {
+              background-color: var(--secondary-color);
+              color: var(--accent-color);
+              padding: 4px 8px;
+              border-radius: 4px;
+              font-size: 14px;
+              font-weight: 500;
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              border: 1px solid var(--accent-color);
+            }
+            
+            .skill-icon {
+              color: var(--accent-color);
+            }
+            
+            .more-skills {
+              cursor: pointer;
+              background-color: rgba(100, 255, 218, 0.1);
+              transition: all 0.2s ease;
+            }
+            
+            .more-skills:hover {
+              background-color: rgba(100, 255, 218, 0.2);
               transform: translateY(-2px);
             }
             
-            .job-date {
-              font-family: var(--font-mono);
-              font-size: 0.8rem;
-              margin: 0;
+            .job-description {
+              margin-top: 16px;
+            }
+            
+            .job-bullet {
+              position: relative;
+              padding-left: 24px;
+              margin-bottom: 12px;
+              line-height: 1.5;
               color: var(--text-secondary);
+            }
+            
+            .job-bullet:before {
+              content: "▹";
+              position: absolute;
+              left: 0;
+              color: var(--accent-color);
+            }
+            
+            .job-bullet:hover {
+              color: var(--text-primary);
+            }
+            
+            .certificate-badge {
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              background-color: rgba(100, 255, 218, 0.1);
+              color: var(--accent-color);
+              border: 1px solid var(--accent-color);
+              padding: 4px 12px;
+              border-radius: 4px;
+              font-size: 14px;
+              margin-top: 12px;
+              cursor: pointer;
+              transition: all 0.2s ease;
+            }
+            
+            .certificate-badge:hover {
+              background-color: rgba(100, 255, 218, 0.2);
+              transform: translateY(-2px);
+            }
+            
+            .timeline-marker {
+              position: absolute;
+              left: 24px;
+              top: 48px;
+              bottom: 0;
+              width: 2px;
+              background-color: var(--accent-color);
+              opacity: 0.3;
+              z-index: 1;
+            }
+            
+            .new-role-badge {
+              background-color: var(--accent-color);
+              color: var(--dark-navy);
+              font-size: 12px;
+              padding: 2px 8px;
+              border-radius: 12px;
+              font-weight: 500;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            }
+            
+            .employment-type {
+              font-size: 14px;
+              color: var(--text-secondary);
+              margin-bottom: 4px;
             }
           `}
         </style>
@@ -170,143 +322,65 @@ const Experience = () => {
           <span className="number">02.</span> Where I've Worked
         </h2>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            maxWidth: "700px",
-            margin: "0 auto",
-          }}
-          className="fade-in"
-        >
-          {/* Vertical tabs - Company logos */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginBottom: "40px",
-            }}
-          >
-            <ul className="tabs-container" role="tablist" aria-label="Job tabs">
-              {jobs.map((job, i) => (
-                <li key={i}>
-                  <button
-                    id={`tab-${i}`}
-                    role="tab"
-                    aria-selected={activeTabId === i}
-                    aria-controls={`panel-${i}`}
-                    onClick={() => setActiveTabId(i)}
-                    className={`company-tab ${
-                      activeTabId === i ? "active" : ""
-                    }`}
-                  >
-                    <div
-                      className={`logo-container ${
-                        activeTabId === i ? "active" : ""
-                      }`}
-                    >
-                      <img
-                        src={job.logo}
-                        alt={`${job.company} logo`}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "contain",
-                        }}
-                        onError={(e) => {
-                          // Fallback for missing images
-                          e.target.src = "./Assets/logos/placeholder-logo.png";
-                        }}
-                      />
-                    </div>
-                    <span
-                      className="company-name"
-                      style={{
-                        color:
-                          activeTabId === i
-                            ? "var(--accent-color)"
-                            : "var(--text-secondary)",
-                      }}
-                    >
-                      {job.company}
-                    </span>
-                  </button>
-                </li>
-              ))}
-            </ul>
+        <div className="experience-container fade-in">
+          <div className="experience-header">
+            <h3 className="experience-title">Experience</h3>
           </div>
 
-          {/* Job details - Stacked vertically */}
-          <div>
+          <div className="job-timeline">
             {jobs.map((job, i) => (
-              <div
-                key={i}
-                id={`panel-${i}`}
-                role="tabpanel"
-                aria-labelledby={`tab-${i}`}
-                className="job-panel"
-                style={{
-                  display: activeTabId === i ? "block" : "none",
-                  opacity: activeTabId === i ? 1 : 0,
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "15px",
-                  }}
-                >
-                  <div className="panel-logo-container">
-                    <img
-                      src={job.logo}
-                      alt={`${job.company} logo`}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
-                      }}
-                      onError={(e) => {
-                        // Fallback for missing images
-                        e.target.src = "./Assets/logos/placeholder-logo.png";
-                      }}
-                    />
-                  </div>
-
-                  <div>
-                    <h3
-                      style={{
-                        fontSize: "1.25rem",
-                        fontWeight: 500,
-                        marginBottom: "5px",
-                      }}
-                    >
-                      <span>{job.title}</span>
-                      <span style={{ color: "var(--accent-color)" }}> @ </span>
-                      <a
-                        href={job.url}
-                        className="company-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {job.company}
-                      </a>
-                    </h3>
-
-                    <p className="job-date">{job.date}</p>
-                  </div>
+              <div key={i} className="job-entry">
+                {i < jobs.length - 1 && <div className="timeline-marker"></div>}
+                <div className="logo-container">
+                  <img
+                    src={job.logo}
+                    alt={`${job.company} logo`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                    onError={(e) => {
+                      e.target.src = "./Assets/logos/placeholder-logo.png";
+                    }}
+                  />
                 </div>
 
-                <ul
-                  style={{ padding: 0, listStyle: "none", marginTop: "20px" }}
-                >
-                  {job.description.map((point, j) => (
-                    <li key={j} className="job-item">
-                      <span className="job-marker">▹</span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+                <div className="job-details">
+                  <h4 className="job-company">{job.company}</h4>
+                  <div className="job-title">{job.title}</div>
+                  <div className="employment-type">{job.employmentType}</div>
+                  <div className="job-meta">{job.location}</div>
+                  <div className="job-duration">
+                    <span>{job.date}</span>
+                    <span>·</span>
+                    <span>{job.duration}</span>
+                  </div>
+
+                  <div className="job-skills">
+                    {renderSkills(job.skills, i)}
+                  </div>
+
+                  <div className="job-description">
+                    {job.description.map((point, j) => (
+                      <div key={j} className="job-bullet">
+                        {point}
+                      </div>
+                    ))}
+                  </div>
+
+                  {job.certificate && (
+                    <a
+                      href={job.certificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="certificate-badge"
+                    >
+                      <span>📄</span>
+                      <span>{job.certificate}</span>
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>

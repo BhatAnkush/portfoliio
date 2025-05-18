@@ -290,7 +290,7 @@ const Hero = () => {
               transitionDelay: "0.2s",
             }}
           >
-            I'm a Software Engineer Intern with a passion for creating clean,
+            I'm a Software Engineer with a passion for creating clean,
             user-friendly web applications. Currently, I'm gaining hands-on
             experience and building practical solutions at{" "}
             <a

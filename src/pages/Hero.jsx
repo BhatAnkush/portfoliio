@@ -242,10 +242,9 @@ const Hero = () => {
               fontSize: "1rem",
             }}
           >
-            Hi, my name is
+            Hey there, I'm
           </p>
 
-          {/* Name on its own line */}
           <TypingText
             text="Ankush Bhat."
             speed={100}
@@ -262,16 +261,15 @@ const Hero = () => {
             }}
           />
 
-          {/* Title always on a new line */}
           <TypingText
-            text="I build things for the web."
+            text="I craft beautiful web experiences."
             speed={80}
-            delay={1200} // Start after first line completes
+            delay={1200}
             as="h2"
             className="fade-in"
             style={{
               fontSize: "clamp(40px, 8vw, 80px)",
-              margin: "10px 0 30px 0", // Added top margin for spacing between lines
+              margin: "10px 0 30px 0",
               fontWeight: "600",
               color: "var(--text-secondary)",
               lineHeight: "1.1",
@@ -290,16 +288,16 @@ const Hero = () => {
               transitionDelay: "0.2s",
             }}
           >
-            I'm a Software Engineer with a passion for creating clean,
-            user-friendly web applications. Currently, I'm gaining hands-on
-            experience and building practical solutions at{" "}
+            I'm a web developer focused on building fast, responsive, and
+            user-friendly websites and apps. Currently, I’m gaining hands-on
+            experience and solving real-world problems at{" "}
             <a
               href="https://www.niveussolutions.com/"
               style={{ color: "var(--accent-color)" }}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Niveus Solutions, part of NTT Data
+              Niveus Solutions part of NTT DATA
             </a>
             .
           </p>
@@ -320,7 +318,7 @@ const Hero = () => {
                 width: "auto",
               }}
             >
-              Check out my work
+              Explore My Work
             </a>
           </div>
         </div>

@@ -134,7 +134,7 @@ const Navbar = () => {
 
           {/* Work */}
           <li>
-            <Link to="/projects" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 9999 }}>
+            <Link to="/work" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 9999 }}>
               <FiGrid /> <span>Work</span>
             </Link>
           </li>

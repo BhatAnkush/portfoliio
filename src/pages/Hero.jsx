@@ -108,7 +108,7 @@ const Hero = () => {
             .avatar-ring:hover { transform: scale(1.03) rotate(2deg); }
             .avatar-img { width: 100%; height: 100%; border-radius: 9999px; object-fit: cover; display: block; }
 
-            .scroll-indicator { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); color: var(--text-color); opacity: 0.7; }
+            .scroll-indicator { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); color: var(--text-color); opacity: 0.7; cursor:pointer; }
             .scroll-indicator span { display: inline-block; animation: bounce 1.2s infinite; }
             @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
           `}
@@ -138,7 +138,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <a href="#about" aria-label="Scroll to About" className="scroll-indicator">
+      <a href="#work" aria-label="Scroll to Work" className="scroll-indicator">
         <span>↓</span>
       </a>
     </section>

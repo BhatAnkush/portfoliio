@@ -317,7 +317,7 @@ const Experience = () => {
 
         <h2 className="section-title fade-in" style={{ alignItems: "baseline", gap: 8 }}>
           <span className="number">02.</span>
-          <span className="gradient-text" style={{ fontWeight: 800 }}>Work</span>
+          <span className="gradient-text" style={{ fontWeight: 800 }} id="work">Work</span>
           <span aria-hidden style={{ flex: 1, height: 2, background: "linear-gradient(90deg, transparent, var(--accent-color))", borderRadius: 2 }}></span>
         </h2>
 

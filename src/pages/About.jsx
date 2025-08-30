@@ -96,12 +96,11 @@ const About = () => {
 
             <ul
               style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, minmax(140px, 200px))",
-                gap: "0 10px",
-                padding: "0",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "10px",
+                padding: 0,
                 margin: "20px 0 0",
-                overflow: "hidden",
                 listStyle: "none",
               }}
             >
@@ -109,97 +108,34 @@ const About = () => {
                 <li
                   key={i}
                   style={{
-                    position: "relative",
-                    marginBottom: "10px",
-                    paddingLeft: "20px",
                     fontFamily: "var(--font-mono)",
-                    fontSize: "0.9rem",
-                    color: "var(--text-secondary)",
+                    fontSize: "0.85rem",
+                    color: "white",
+                    backgroundImage: "var(--button-gradient)",
+                    padding: "6px 10px",
+                    borderRadius: 9999,
+                    transition: "transform 200ms ease, box-shadow 200ms ease",
                   }}
                 >
-                  <span
-                    style={{
-                      position: "absolute",
-                      left: "0",
-                      color: "var(--accent-color)",
-                    }}
-                  >
-                    ▹
-                  </span>
                   {skill}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Image section */}
-          <div className="fade-in" style={{ position: "relative" }}>
-            <div
-              style={{
-                position: "relative",
-                maxWidth: "300px",
-                margin: "50px auto 0",
-                borderRadius: "8px",
-              }}
-            >
-              <div
+          <div className="fade-in" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div style={{ width: 260, height: 260, borderRadius: 9999, background: "conic-gradient(from 180deg at 50% 50%, #60a5fa, #22d3ee, #1e3a8a, #60a5fa)", padding: 4 }}>
+              <img
+                src={assets.aboutme}
+                alt="Ankush Bhat"
                 style={{
-                  position: "absolute",
-                  top: "20px",
-                  left: "20px",
                   width: "100%",
                   height: "100%",
-                  border: "2px solid #64ffda",
-                  borderRadius: "8px",
-                  zIndex: -1,
-                  transition: "all 0.4s ease",
+                  objectFit: "cover",
+                  borderRadius: 9999,
+                  display: "block",
                 }}
-              ></div>
-
-              <div
-                style={{
-                  borderRadius: "8px",
-                  backgroundColor: "#64ffda",
-                  padding: "6px",
-                  transition: "all 0.4s ease",
-                  boxShadow: "0 10px 30px -15px rgba(2, 12, 27, 0.7)",
-                }}
-              >
-                <div
-                  style={{
-                    overflow: "hidden",
-                    borderRadius: "6px",
-                    lineHeight: "0",
-                  }}
-                >
-                  <img
-                    src={assets.aboutme}
-                    alt="Ankush Bhat"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      objectFit: "cover",
-                      borderRadius: "6px",
-                      filter: "grayscale(100%) contrast(1)",
-                      mixBlendMode: "multiply",
-                      transition: "all 0.4s ease",
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "0",
-                      left: "0",
-                      width: "100%",
-                      height: "100%",
-                      backgroundColor: "rgba(100, 255, 218, 0.1)",
-                      mixBlendMode: "screen",
-                      pointerEvents: "none",
-                      transition: "all 0.4s ease",
-                    }}
-                  />
-                </div>
-              </div>
+              />
             </div>
           </div>
         </div>

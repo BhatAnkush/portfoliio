@@ -16,7 +16,6 @@ const Experience = () => {
         "Node.js",
         "Google Cloud Platform (GCP)",
         "Cascading Style Sheets (CSS)",
-        "Node.js",
         "PostgreSQL",
         "Postman",
       ],
@@ -40,7 +39,6 @@ const Experience = () => {
         "Node.js",
         "Google Cloud Platform (GCP)",
         "Cascading Style Sheets (CSS)",
-        "Node.js",
         "PostgreSQL",
       ],
       description: [
@@ -317,8 +315,10 @@ const Experience = () => {
           `}
         </style>
 
-        <h2 className="section-title fade-in">
-          <span className="number">02.</span> Where I've Worked
+        <h2 className="section-title fade-in" style={{ alignItems: "baseline", gap: 8 }}>
+          <span className="number">02.</span>
+          <span className="gradient-text" style={{ fontWeight: 800 }}>Work</span>
+          <span aria-hidden style={{ flex: 1, height: 2, background: "linear-gradient(90deg, transparent, var(--accent-color))", borderRadius: 2 }}></span>
         </h2>
 
         <div className="experience-container fade-in">
@@ -340,7 +340,7 @@ const Experience = () => {
                       objectFit: "contain",
                     }}
                     onError={(e) => {
-                      e.target.src = "./Assets/logos/placeholder-logo.png";
+                      e.currentTarget.src = "/placeholder.svg";
                     }}
                   />
                 </div>

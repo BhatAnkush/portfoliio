@@ -6,6 +6,7 @@ const Projects = () => {
 
   const projects = [
     {
+      caseStudyId: "suny-art-school",
       title: "Suny Art School",
       description:
         "Built a Website for a Art School using HTML, CSS, and JavaScript.",
@@ -16,6 +17,7 @@ const Projects = () => {
       category: "frontend",
     },
     {
+      caseStudyId: "mentor-mentee-dms",
       title: "Mentor-Mentee Database Management System",
       description:
         "A database management system designed for mentor-mentee interactions, allowing mentors to perform CRUD operations and mentees to view their updated marks and other relevant information.",
@@ -26,6 +28,7 @@ const Projects = () => {
       category: "fullstack",
     },
     {
+      caseStudyId: "socio",
       title: "SOCiO",
       description:
         "A social media application crafted with the power of React! Connect, share, and stay engaged with a vibrant community.",
@@ -108,6 +111,8 @@ const Projects = () => {
               border-top-left-radius: 4px;
               border-top-right-radius: 4px;
             }
+            .project-overlay { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,0.35); opacity: 0; transition: opacity 0.3s ease; }
+            .project-image-container:hover .project-overlay { opacity: 1; }
             
             .project-image {
               width: 100%;
@@ -283,9 +288,12 @@ const Projects = () => {
                   alt={project.title}
                   className="project-image"
                   onError={(e) => {
-                    e.target.src = "/api/placeholder/400/320"; // Fallback image
+                    e.currentTarget.src = "/placeholder.svg";
                   }}
                 />
+                <div className="project-overlay">
+                  <a href={`/case-studies/${project.caseStudyId || project.title.toLowerCase().replace(/[^a-z0-9]+/g,'-')}`} className="btn-gradient" style={{ padding: '0.45rem 0.8rem', borderRadius: 8 }}>View Case Study</a>
+                </div>
               </div>
 
               <div className="project-content">
@@ -307,7 +315,8 @@ const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`GitHub repository for ${project.title}`}
-                      className="project-link"
+                      className="btn-gradient"
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '0.5rem 0.8rem', borderRadius: 10 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -332,7 +341,8 @@ const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Live demo for ${project.title}`}
-                      className="project-link"
+                      className="btn-gradient"
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '0.5rem 0.8rem', borderRadius: 10 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

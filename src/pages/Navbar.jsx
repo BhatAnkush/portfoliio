@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import assets from "../components/Assets";
+import { Link } from "react-router-dom";
+import { useTheme } from "../hooks/use-theme";
+import { FiSun, FiMoon, FiHome, FiUser, FiGrid } from "react-icons/fi";
+import Clock from "../components/Clock";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -52,6 +55,7 @@ const Navbar = () => {
   };
 
   const isMobile = windowWidth <= 768;
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <header
@@ -61,34 +65,33 @@ const Navbar = () => {
         top: 0,
         width: "100%",
         zIndex: 100,
-        padding: "0 2rem",
+        padding: "0 1rem",
         height: "70px",
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "center",
         transition: "var(--transition)",
-        backgroundColor: scrolled ? "rgba(10, 25, 47, 0.85)" : "transparent",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
-        boxShadow: scrolled ? "0 10px 30px -10px rgba(2, 12, 27, 0.7)" : "none",
+        backgroundColor: scrolled ? "rgba(0,0,0,0.0)" : "transparent",
+        backdropFilter: scrolled ? "blur(6px)" : "none",
+        boxShadow: scrolled ? "0 8px 20px rgba(0,0,0,0.15)" : "none",
       }}
     >
       <div
         className="logo"
         style={{
+          position: "absolute",
+          left: 16,
           fontFamily: "var(--font-mono)",
           fontWeight: "bold",
-          fontSize: "1.5rem",
+          fontSize: "1.2rem",
           color: "var(--accent-color)",
         }}
       >
-        <a href="#home">AB.</a>
+        <a href="/">0x4nku5h</a>
       </div>
 
       <nav
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
+        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
         <ul
           style={{
@@ -97,139 +100,74 @@ const Navbar = () => {
             position: isMobile ? "absolute" : "static",
             top: isMobile ? "70px" : "auto",
             right: isMobile ? "0" : "auto",
-            backgroundColor: isMobile
-              ? "var(--secondary-color)"
-              : "transparent",
-            width: isMobile ? "70%" : "auto",
-            height: isMobile ? "100vh" : "auto",
-            alignItems: isMobile ? "center" : "center",
-            justifyContent: isMobile ? "flex-start" : "center",
-            padding: isMobile ? "2rem" : "0",
+            margin: 0,
+            background: theme === 'light' ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.08)',
+            backdropFilter: "blur(10px)",
+            border: theme === 'light' ? '1px solid rgba(0,0,0,0.06)' : '1px solid rgba(255,255,255,0.15)',
+            boxShadow: theme === 'light' ? '0 6px 18px rgba(0,0,0,0.12)' : '0 8px 24px rgba(0,0,0,0.2)',
+            borderRadius: isMobile ? "0" : "9999px",
+            minWidth: isMobile ? "70%" : 320,
+            height: isMobile ? "100vh" : "48px",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: isMobile ? "2rem" : "0 8px",
+            gap: isMobile ? "12px" : "4px",
           }}
           className="nav-links"
         >
-          <li
-            style={{
-              margin: "0 1.5rem",
-              padding: "0.5rem 0",
-              fontSize: "0.9rem",
-            }}
-          >
-            <a href="#home" onClick={(e) => handleNavClick(e, "home")}>
-              <span
-                style={{
-                  color: "var(--accent-color)",
-                  fontFamily: "var(--font-mono)",
-                }}
-              >
-                01.{" "}
-              </span>
-              Home
-            </a>
+          {/* Home icon button */}
+          <li style={{ padding: "6px" }}>
+            <Link to="/" style={{ width: 36, height: 36, borderRadius: 9999, display: 'grid', placeItems: 'center', background: theme === 'light' ? '#efefef' : 'rgba(0,0,0,0.08)', color: 'var(--text-color)' }}>
+              <FiHome />
+            </Link>
           </li>
-          <li
-            style={{
-              margin: "0 1.5rem",
-              padding: "0.5rem 0",
-              fontSize: "0.9rem",
-            }}
-          >
-            <a href="#about" onClick={(e) => handleNavClick(e, "about")}>
-              <span
-                style={{
-                  color: "var(--accent-color)",
-                  fontFamily: "var(--font-mono)",
-                }}
-              >
-                02.{" "}
-              </span>
-              About
-            </a>
+
+          {/* separator */}
+          <li aria-hidden style={{ width: 1, height: 24, background: theme === 'light' ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.15)' }} />
+
+          {/* About */}
+          <li>
+            <Link to="/about" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 9999 }}>
+              <FiUser /> <span>About</span>
+            </Link>
           </li>
-          <li
-            style={{
-              margin: "0 1.5rem",
-              padding: "0.5rem 0",
-              fontSize: "0.9rem",
-            }}
-          >
-            <a
-              href="#experience"
-              onClick={(e) => handleNavClick(e, "experience")}
-            >
-              <span
-                style={{
-                  color: "var(--accent-color)",
-                  fontFamily: "var(--font-mono)",
-                }}
-              >
-                03.{" "}
-              </span>
-              Experience
-            </a>
+
+          {/* Work */}
+          <li>
+            <Link to="/projects" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', borderRadius: 9999 }}>
+              <FiGrid /> <span>Work</span>
+            </Link>
           </li>
-          <li
-            style={{
-              margin: "0 1.5rem",
-              padding: "0.5rem 0",
-              fontSize: "0.9rem",
-            }}
-          >
-            <a href="#projects" onClick={(e) => handleNavClick(e, "projects")}>
-              <span
-                style={{
-                  color: "var(--accent-color)",
-                  fontFamily: "var(--font-mono)",
-                }}
-              >
-                04.{" "}
-              </span>
-              Projects
-            </a>
-          </li>
-          <li
-            style={{
-              margin: "0 1.5rem",
-              padding: "0.5rem 0",
-              fontSize: "0.9rem",
-            }}
-          >
-            <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>
-              <span
-                style={{
-                  color: "var(--accent-color)",
-                  fontFamily: "var(--font-mono)",
-                }}
-              >
-                05.{" "}
-              </span>
-              Contact
-            </a>
-          </li>
-          <li style={{ marginLeft: "1.5rem" }}>
-            <a
-              href={assets.resume}
-              download="Ankush_Ananth_Bhat_Resume.pdf"
-              className="btn btn-primary"
-            >
-              Resume
-            </a>
+
+          {/* separator */}
+          <li aria-hidden style={{ width: 1, height: 24, background: theme === 'light' ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.15)' }} />
+
+          {/* Theme toggle inside pill */}
+          <li>
+            <button aria-label="Toggle theme" onClick={toggleTheme} style={{ width: 36, height: 36, borderRadius: 9999, display: 'grid', placeItems: 'center', background: theme === 'light' ? '#efefef' : 'rgba(0,0,0,0.08)', color: 'var(--text-color)', border: 'none' }}>
+              {theme === 'light' ? <FiMoon /> : <FiSun />}
+            </button>
           </li>
         </ul>
 
-        <button
-          className="mobile-menu-btn"
-          onClick={toggleMenu}
-          style={{
-            display: isMobile ? "block" : "none",
-            fontSize: "1.5rem",
-            color: "var(--accent-color)",
-            background: "none",
-            border: "none",
-          }}
-        >
-          {mobileMenuOpen ? "✕" : "☰"}
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", position: 'absolute', right: 16 }}>
+          <button
+            className="mobile-menu-btn"
+            onClick={toggleMenu}
+            style={{
+              display: isMobile ? "block" : "none",
+              fontSize: "1.5rem",
+              color: "var(--accent-color)",
+              background: "none",
+              border: "none",
+            }}
+          >
+            {mobileMenuOpen ? "✕" : "☰"}
+          </button>
+          <div aria-label="Clock" style={{ fontSize: 12, opacity: 0.85 }}>
+            <Clock />
+          </div>
+        </div>
       </nav>
     </header>
   );

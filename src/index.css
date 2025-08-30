@@ -1,15 +1,58 @@
-
 :root {
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'Space Mono', monospace;
-  
-  --primary-color: #0a192f;
-  --secondary-color: #112240;
+
   --accent-color: #64ffda;
-  --white: #e6f1ff;
   --text-secondary: #8892b0;
-  
+  --text-color: #e6f1ff;
+  --background: #0a192f;
+  --secondary-color: #112240;
+  --button-gradient: linear-gradient(135deg, #60a5fa 0%, #1e3a8a 100%);
+  --heading-gradient: linear-gradient(90deg, #60a5fa 0%, #7dd3fc 50%, #1e3a8a 100%);
+
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+:root[data-theme="light"] {
+  --text-color: #0b1220;
+  --text-secondary: #1f2937;
+  --accent-color: #2563eb;
+  --secondary-color: rgba(255,255,255,0.6);
+  --background: linear-gradient(180deg, #87CEEB 0%, #FDFDFD 100%);
+  --button-gradient: linear-gradient(135deg, #87CEEB 0%, #1E3A8A 100%);
+  --heading-gradient: linear-gradient(90deg, #1E3A8A 0%, #60a5fa 50%, #87CEEB 100%);
+}
+
+:root[data-theme="dark"] {
+  --text-color: #eef6ff;
+  --text-secondary: #b7c7dd;
+  --accent-color: #7cc8ff;
+  --secondary-color: #132b45;
+  --background: linear-gradient(180deg, #113055 0%, #0c1e38 100%);
+  --button-gradient: linear-gradient(135deg, #7cc8ff 0%, #265ea7 100%);
+  --heading-gradient: linear-gradient(90deg, #9ce2ff 0%, #7cc8ff 50%, #265ea7 100%);
+}
+
+.gradient-text {
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-gradient {
+  background-image: var(--button-gradient);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.1rem;
+  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.35);
+  filter: brightness(1.05);
 }
 
 * {
@@ -24,10 +67,11 @@ html, body {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--primary-color);
-  color: var(--white);
+  background: var(--background);
+  color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background 500ms ease, color 300ms ease;
 }
 
 a {
@@ -67,7 +111,7 @@ ul {
   color: var(--accent-color);
   background-color: transparent;
   border: 1px solid var(--accent-color);
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 0.75rem 1rem;
   font-family: var(--font-mono);
   line-height: 1;
@@ -82,7 +126,9 @@ ul {
 }
 
 .btn-primary {
-  background-color: rgba(100, 255, 218, 0.1);
+  background-image: var(--button-gradient);
+  color: #fff;
+  border: none;
 }
 
 .loading-screen {
@@ -90,7 +136,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-color);
+  background: var(--background);
 }
 
 .loader {

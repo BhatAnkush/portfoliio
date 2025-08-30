@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import assets from "../components/Assets";
 
 const TypingText = ({
   text,
@@ -55,112 +56,24 @@ const TypingText = ({
 
 const Hero = () => {
   const [showContent, setShowContent] = useState(false);
-  const canvasRef = useRef(null);
+
+  const avatarRef = useRef(null);
 
   useEffect(() => {
-    // Wait for title to complete before showing the rest of content
-    const timer = setTimeout(() => {
-      setShowContent(true);
-    }, 3000); // Adjust based on your typing duration
-
+    const timer = setTimeout(() => setShowContent(true), 1200);
     return () => clearTimeout(timer);
   }, []);
 
-  // Particle animation setup
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    let animationFrameId;
-
-    // Set canvas dimensions
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    // Particle properties
-    const particlesArray = [];
-    const numberOfParticles = 100;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 5 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-        this.color = `hsla(${Math.random() * 60 + 250}, ${
-          Math.random() * 50 + 30
-        }%, ${Math.random() * 50 + 40}%, ${Math.random() * 0.5 + 0.1})`;
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x > canvas.width || this.x < 0) {
-          this.speedX = -this.speedX;
-        }
-        if (this.y > canvas.height || this.y < 0) {
-          this.speedY = -this.speedY;
-        }
-      }
-
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    const init = () => {
-      for (let i = 0; i < numberOfParticles; i++) {
-        particlesArray.push(new Particle());
+    const onScroll = () => {
+      const y = window.scrollY;
+      const translate = Math.min(12, y * 0.04);
+      if (avatarRef.current) {
+        avatarRef.current.style.transform = `translateY(${translate}px)`;
       }
     };
-
-    const connect = () => {
-      let opacityValue = 1;
-      for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a; b < particlesArray.length; b++) {
-          const dx = particlesArray[a].x - particlesArray[b].x;
-          const dy = particlesArray[a].y - particlesArray[b].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 120) {
-            opacityValue = 1 - distance / 120;
-            ctx.strokeStyle = `rgba(148, 85, 255, ${opacityValue * 0.2})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-    };
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particlesArray.forEach((particle) => {
-        particle.update();
-        particle.draw();
-      });
-      connect();
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    init();
-    animate();
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("resize", handleResize);
-    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
@@ -170,159 +83,64 @@ const Hero = () => {
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
-        paddingTop: "100px",
+        justifyContent: "center",
+        paddingTop: "80px",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Particle animation canvas */}
-      <canvas
-        ref={canvasRef}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          opacity: 0.4,
-          zIndex: 0,
-        }}
-      ></canvas>
-
-      <div className="container" style={{ position: "relative", zIndex: 10 }}>
-        <div style={{ maxWidth: "800px" }}>
+      <div className="container" style={{ position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: 880, margin: "0 auto", textAlign: "center" }}>
           <style>
             {`
-            @keyframes blink-caret {
-              from, to { border-color: transparent }
-              50% { border-color: var(--accent-color) }
+            .intro-up { opacity: 0; transform: translateY(20px); animation: intro 800ms ease forwards; }
+            .intro-up.delay-1 { animation-delay: 200ms; }
+            .intro-up.delay-2 { animation-delay: 400ms; }
+            .intro-up.delay-3 { animation-delay: 600ms; }
+            @keyframes intro { to { opacity: 1; transform: translateY(0); } }
+
+            .avatar-ring {
+              width: 160px; height: 160px; border-radius: 9999px; padding: 3px;
+              background: conic-gradient(from 180deg at 50% 50%, #60a5fa, #22d3ee, #1e3a8a, #60a5fa);
+              margin: 0 auto 18px; display: grid; place-items: center;
+              transition: transform 400ms ease;
             }
-            
-            .content-fade-in {
-              opacity: 0;
-              transform: translateY(10px);
-              transition: opacity 0.6s ease, transform 0.6s ease;
-            }
-            
-            .content-fade-in.visible {
-              opacity: 1;
-              transform: translateY(0);
-            }
-            
-            .btn-primary {
-              display: inline-block;
-              color: var(--accent-color);
-              background-color: transparent;
-              border: 1px solid var(--accent-color);
-              border-radius: 4px;
-              padding: 1.25rem 1.75rem;
-              font-size: 14px;
-              font-family: var(--font-mono);
-              line-height: 1;
-              text-decoration: none;
-              cursor: pointer;
-              transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-              margin: 0;
-              width: auto;
-            }
-            
-            .btn-primary:hover {
-              background-color: rgba(100, 255, 218, 0.1);
-              outline: none;
-            }
-            `}
+            .avatar-ring:hover { transform: scale(1.03) rotate(2deg); }
+            .avatar-img { width: 100%; height: 100%; border-radius: 9999px; object-fit: cover; display: block; }
+
+            .scroll-indicator { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); color: var(--text-color); opacity: 0.7; }
+            .scroll-indicator span { display: inline-block; animation: bounce 1.2s infinite; }
+            @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+          `}
           </style>
 
-          <p
-            className="fade-in"
-            style={{
-              fontFamily: "var(--font-mono)",
-              color: "var(--accent-color)",
-              margin: "0 0 20px 4px",
-              fontSize: "1rem",
-            }}
-          >
-            Hey there, I'm
-          </p>
+          <div className={showContent ? "intro-up" : ""}>
+            <div className="avatar-ring" ref={avatarRef} style={{ width: 132, height: 132 }}>
+              <img src={assets.aboutme} alt="Ankush Bhat" className="avatar-img" />
+            </div>
+          </div>
 
-          <TypingText
-            text="Ankush Bhat."
-            speed={100}
-            as="h1"
-            className="fade-in"
-            style={{
-              fontSize: "clamp(40px, 8vw, 80px)",
-              margin: "0",
-              fontWeight: "600",
-              color: "var(--white)",
-              lineHeight: "1.1",
-              display: "block",
-              width: "100%",
-            }}
-          />
+          <h1 className={`gradient-text ${showContent ? "intro-up delay-1" : ""}`} style={{ fontSize: "clamp(40px, 7vw, 72px)", fontWeight: 800, letterSpacing: 0.5, marginTop: 8 }}>
+            Passionate Frontend Developer
+          </h1>
+          <h2 className={showContent ? "intro-up delay-2" : ""} style={{ fontSize: "clamp(16px, 2.6vw, 22px)", color: "var(--text-secondary)", marginTop: 8 }}>
+            Full‑Stack & Cloud Enthusiast
+          </h2>
 
-          <TypingText
-            text="I craft beautiful web experiences."
-            speed={80}
-            delay={1200}
-            as="h2"
-            className="fade-in"
-            style={{
-              fontSize: "clamp(40px, 8vw, 80px)",
-              margin: "10px 0 30px 0",
-              fontWeight: "600",
-              color: "var(--text-secondary)",
-              lineHeight: "1.1",
-              display: "block",
-              width: "100%",
-            }}
-          />
-
-          <p
-            className={`content-fade-in ${showContent ? "visible" : ""}`}
-            style={{
-              maxWidth: "540px",
-              marginBottom: "30px",
-              color: "var(--text-secondary)",
-              fontSize: "1.2rem",
-              transitionDelay: "0.2s",
-            }}
-          >
-            I'm a web developer focused on building fast, responsive, and
-            user-friendly websites and apps. Currently, I’m gaining hands-on
-            experience and solving real-world problems at{" "}
-            <a
-              href="https://www.niveussolutions.com/"
-              style={{ color: "var(--accent-color)" }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Niveus Solutions part of NTT DATA
+          <div className={showContent ? "intro-up delay-3" : ""} style={{ marginTop: 28, display: 'flex', gap: 12, justifyContent: 'center' }}>
+            <a href="#projects" className="btn-gradient" style={{ padding: "0.9rem 1.25rem", borderRadius: 9999 }}>
+              View Work
             </a>
-            .
-          </p>
-
-          <div
-            className={`content-fade-in ${showContent ? "visible" : ""}`}
-            style={{
-              marginTop: "50px",
-              transitionDelay: "0.4s",
-            }}
-          >
-            <a
-              href="#projects"
-              className="btn-primary"
-              style={{
-                display: "inline-block",
-                padding: "1.25rem 1.75rem",
-                width: "auto",
-              }}
-            >
-              Explore My Work
+            <a href="/case-studies/suny-art-school" className="btn" style={{ borderRadius: 9999 }}>
+              Featured Case Study
             </a>
           </div>
         </div>
       </div>
+
+      <a href="#about" aria-label="Scroll to About" className="scroll-indicator">
+        <span>↓</span>
+      </a>
     </section>
   );
 };

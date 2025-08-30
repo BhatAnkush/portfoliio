@@ -50,7 +50,7 @@ const Experience = () => {
       ],
       certificate: "Internship completion certificate",
       certificateUrl:
-        "https://media.licdn.com/dms/image/v2/D562DAQHuKH1is3Mkxw/profile-treasury-image-shrink_1280_1280/B56Zayqce.GoAQ-/0/1746754194415?e=1748174400&v=beta&t=n86ZQ5UdA0Z2etn2EJ9rDZltcYHp-FdWNgoLHOHmq7U",
+        "https://media.licdn.com/dms/image/v2/D562DAQHuKH1is3Mkxw/profile-treasury-image-shrink_1280_1280/B56Zayqce.GoAQ-/0/1746754194415?e=1757142000&v=beta&t=MfrzHRpEn5HRQupEz7TK_bCFwnWiNh062jjpzr6vbU8",
     },
     {
       title: "Intern",
@@ -73,8 +73,7 @@ const Experience = () => {
       ],
       certificate: "Internship completion certificate",
       certificateUrl:
-        "https://media.licdn.com/dms/image/v2/D562DAQEQONVAKNfCJg/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1719374836225?e=1748174400&v=beta&t=mubmR0avPIqaDfV7L2feUFBksvJTCXsnCMovy2Q-HPI",
-    },
+        "https://www.linkedin.com/in/ankushab/overlay/1717334641025/single-media-viewer?type=IMAGE&profileId=ACoAADPo6NwBPPcuFuKIlTf2LzLGleqkRp6GZn8&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bq1fEv6KxTD%2BJ9XrTuN3gNA%3D%3D"    },
   ];
 
   // State to track expanded skill lists

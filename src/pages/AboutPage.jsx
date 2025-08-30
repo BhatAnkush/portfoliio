@@ -14,6 +14,9 @@ import {
   FiBookOpen,
   FiCode,
   FiGitBranch,
+  FiDatabase,
+  FiCloud,
+  FiTool,
 } from "react-icons/fi";
 
 const AboutPage = () => {
@@ -165,12 +168,8 @@ const AboutPage = () => {
       icon: FiCode,
       items: [
         "JavaScript",
-        "TypeScript",
-        "React",
-        "Next.js",
-        "Vue.js",
+        "React.js",
         "Tailwind CSS",
-        "SCSS",
         "HTML5",
         "CSS3",
         "Responsive Design",
@@ -183,7 +182,6 @@ const AboutPage = () => {
         "Node.js",
         "Express.js",
         "REST APIs",
-        "GraphQL",
         "Authentication",
         "JWT",
         "OAuth",
@@ -192,35 +190,17 @@ const AboutPage = () => {
     },
     databases: {
       title: "Databases",
-      icon: FiGitBranch,
-      items: [
-        "PostgreSQL",
-        "MongoDB",
-        "MySQL",
-        "SQLite",
-        "Redis",
-        "Prisma",
-        "Database Design",
-        "Query Optimization",
-      ],
+      icon: FiDatabase,
+      items: ["PostgreSQL", "MySQL", "Database Design", "Query Optimization"],
     },
     cloud: {
       title: "Cloud & DevOps",
-      icon: FiGitBranch,
-      items: [
-        "Google Cloud Platform",
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "CI/CD",
-        "Cloud Run",
-        "Firebase",
-        "Vercel",
-      ],
+      icon: FiCloud,
+      items: ["Google Cloud Platform", "Docker", "Cloud Run", "Firebase"],
     },
     tools: {
       title: "Tools & Technologies",
-      icon: FiGitBranch,
+      icon: FiTool,
       items: [
         "Git",
         "GitHub",
@@ -229,7 +209,6 @@ const AboutPage = () => {
         "ESLint",
         "Prettier",
         "Jest",
-        "Testing Library",
         "Webpack",
         "Vite",
       ],
@@ -890,39 +869,25 @@ const AboutPage = () => {
             {activeTab === "overview" && (
               <div>
                 <p className="intro-text">
-                  I'm Ankush, a passionate Full Stack Developer and Cloud
-                  Engineer based in Mangaluru, India. With over 2 years of
-                  experience in modern web development, I specialize in building
-                  scalable, user-centric applications using React, Next.js, and
-                  cloud technologies. I'm committed to writing clean,
-                  maintainable code and creating exceptional user experiences.
+                  Hello! I’m Ankush Ananth Bhat, a passionate Web Developer with
+                  a strong foundation in Information Science. I earned my
+                  Bachelor's in Engineering from Sahyadri College of Engineering
+                  & Management, Mangaluru, and have since been dedicated to
+                  crafting impactful web applications and solutions.
                 </p>
                 <p className="intro-text">
-                  My journey in technology has taken me through various domains
-                  - from frontend development to cloud engineering and process
-                  automation. I thrive in collaborative environments and enjoy
-                  solving complex problems with innovative solutions.
+                  Currently, I serve as a Cloud Explorer-Technology at Niveus
+                  Solutions, where I gain hands-on experience in developing
+                  real-world applications and enhancing my skills in modern web
+                  technologies. I thrive on taking on new projects and
+                  challenges that drive me to learn and innovate. From building
+                  responsive interfaces to developing robust backend systems,
+                  I’m dedicated to crafting solutions that are efficient,
+                  scalable, and user-centered.
                 </p>
-
-                <div className="info-grid">
-                  <div className="info-card">
-                    <h4>Location & Timezone</h4>
-                    <p>{personalInfo.location}</p>
-                    <p>{personalInfo.timezone}</p>
-                  </div>
-                  <div className="info-card">
-                    <h4>Languages</h4>
-                    <p>{personalInfo.languages.join(", ")}</p>
-                  </div>
-                  <div className="info-card">
-                    <h4>Work Preferences</h4>
-                    <p>{personalInfo.workType}</p>
-                  </div>
-                  <div className="info-card">
-                    <h4>Availability</h4>
-                    <p>{personalInfo.availability}</p>
-                  </div>
-                </div>
+                <p className="intro-text">
+                  Thanks for taking the time to read a bit about me!
+                </p>
               </div>
             )}
 
@@ -961,7 +926,7 @@ const AboutPage = () => {
                     <div className="experience-description">
                       {exp.description.map((desc, i) => (
                         <div key={i} className="description-point">
-                          ▹ {desc}
+                          {desc}
                         </div>
                       ))}
                     </div>

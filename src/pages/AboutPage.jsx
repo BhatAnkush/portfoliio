@@ -1,125 +1,239 @@
 import { useState } from "react";
 import assets from "../components/Assets";
-import { FiGithub, FiLinkedin, FiGlobe, FiMail, FiMapPin, FiCalendar, FiDownload, FiExternalLink, FiAward, FiBriefcase, FiBookOpen, FiCode, FiGitBranch } from "react-icons/fi";
+import {
+  FiGithub,
+  FiLinkedin,
+  FiGlobe,
+  FiMail,
+  FiMapPin,
+  FiCalendar,
+  FiDownload,
+  FiExternalLink,
+  FiAward,
+  FiBriefcase,
+  FiBookOpen,
+  FiCode,
+  FiGitBranch,
+} from "react-icons/fi";
 
 const AboutPage = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
   const experience = [
     {
-      role: "Cloud Associate Engineer",
-      company: "Niveus Solutions (NTT DATA)",
-      period: "Aug 2023 — Jul 2025",
-      type: "Full-time",
-      location: "Mangaluru, India",
-      description: "Leading cloud solutions development and implementing modern web applications with focus on scalability and performance.",
-      achievements: [
-        "Led complete SDLC with Agile methodology for 5+ enterprise projects",
-        "Built responsive UI components with React/Next.js improving user engagement by 40%",
-        "Implemented CI/CD pipelines reducing deployment time by 60%",
-        "Collaborated with cross-functional teams of 8+ developers",
-        "Optimized application performance resulting in 25% faster load times"
+      title: "Cloud Explorer-Technology",
+      company: "Niveus Solutions part of NTT Data",
+      location: "Mangaluru, Karnataka, India",
+      employmentType: "Full-time",
+      logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png",
+      url: "https://www.niveussolutions.com/",
+      date: "May 2025 - Present",
+      duration: "1 mo",
+      skills: [
+        "React.js",
+        "Node.js",
+        "Google Cloud Platform (GCP)",
+        "Cascading Style Sheets (CSS)",
+        "PostgreSQL",
+        "Postman",
       ],
-      technologies: ["React", "Next.js", "TypeScript", "GCP", "Docker", "Node.js"]
+      description: [
+        "Developed responsive UI components using React JS with Ant Design and PrimeReact libraries, ensuring consistent design patterns and optimal performance.",
+        "Contributed to the development of library for multiple functions of a table component.",
+        "Collaborated with cross-functional teams to gather requirements, debug issues, and implement front-end and back-end solutions aligned with needs of the project.",
+      ],
     },
     {
-      role: "Software Engineer Intern",
-      company: "Niveus Solutions (NTT DATA)",
-      period: "Feb 2023 — Aug 2023",
-      type: "Internship",
-      location: "Mangaluru, India",
-      description: "Developed and maintained web applications while learning enterprise-level development practices.",
-      achievements: [
-        "Built 3+ React components for internal tools",
-        "Participated in code reviews and sprint planning",
-        "Learned cloud deployment with GCP services",
-        "Contributed to documentation and testing procedures"
+      title: "Software Engineer-Intern",
+      company: "Niveus Solutions part of NTT Data",
+      location: "Mangaluru, Karnataka, India",
+      employmentType: "Internship",
+      logo: "https://niveussolutions.com/wp-content/uploads/2025/02/Niveus-ntt-data.png",
+      url: "https://www.niveussolutions.com/",
+      date: "November 2024 - May 2025",
+      duration: "6 mos",
+      skills: [
+        "React.js",
+        "Node.js",
+        "Google Cloud Platform (GCP)",
+        "Cascading Style Sheets (CSS)",
+        "PostgreSQL",
       ],
-      technologies: ["React", "JavaScript", "CSS", "Git", "GCP"]
+      description: [
+        "Developed responsive UI components using React JS with Ant Design and PrimeReact libraries, ensuring consistent design patterns and optimal performance.",
+        "Contributed to the development of library for multiple functions of a table component.",
+        "Collaborated with cross-functional teams to gather requirements, debug issues, and implement front-end and back-end solutions aligned with needs of the project.",
+      ],
+      certificate: "Internship completion certificate",
+      certificateUrl:
+        "https://media.licdn.com/dms/image/v2/D562DAQHuKH1is3Mkxw/profile-treasury-image-shrink_1280_1280/B56Zayqce.GoAQ-/0/1746754194415?e=1757142000&v=beta&t=MfrzHRpEz7TK_bCFwnWiNh062jjpzr6vbU8",
     },
     {
-      role: "RPA Intern",
+      title: "Intern",
       company: "EvoluteIQ",
-      period: "Feb 2024 — Apr 2024",
-      type: "Internship",
       location: "Remote",
-      description: "Worked on robotic process automation solutions and learned business process optimization.",
-      achievements: [
-        "Developed automation scripts for data processing",
-        "Learned UiPath and automation best practices",
-        "Assisted in client requirement analysis",
-        "Created documentation for automation workflows"
+      employmentType: "Internship",
+      logo: "https://evoluteiq.com/wp-content/uploads/2025/02/logo-n-evoluteiq.png",
+      url: "https://evoluteiq.com/",
+      date: "February 2024 - April 2024",
+      duration: "3 mos",
+      skills: [
+        "Robotic Process Automation (RPA)",
+        "UiPath",
+        "Automation Anywhere",
       ],
-      technologies: ["UiPath", "Python", "Excel", "Process Automation"]
-    }
+      description: [
+        "Worked on automating business processes using the EvoluteIQ Hyperautomation platform combining RPA, AI, ML, and workflow orchestration.",
+        "Assisted in building UI components and integrations for low-code/no-code automation dashboards using React and Node.js.",
+        "Collaborated with senior engineers to streamline data flows and automate repetitive tasks, reducing manual effort by over 30%.",
+      ],
+      certificate: "Internship completion certificate",
+      certificateUrl:
+        "https://www.linkedin.com/in/ankushab/overlay/1717334641025/single-media-viewer?type=IMAGE&profileId=ACoAADPo6NwBPPcuFuKIlTf2LzLGleqkRp6GZn8&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bq1fEv6KxTD%2BJ9XrTuN3gNA%3D%3D",
+    },
   ];
 
   const education = [
-    { 
-      degree: "Bachelor of Engineering - Information Science", 
-      school: "Sahyadri College of Engineering", 
-      period: "2018 — 2022",
-      grade: "CGPA: 8.2/10",
+    {
+      degree: "Bachelor of Engineering - Information Science",
+      school: "Sahyadri College of Engineering",
+      period: "2020 — 2024",
+      grade: "CGPA: 8.26/10",
       location: "Mangaluru, India",
-      coursework: ["Data Structures", "Algorithms", "Database Systems", "Software Engineering", "Web Technologies", "Computer Networks"]
+      logo: assets.sahyadriLogo,
+      coursework: [
+        "Data Structures",
+        "Algorithms",
+        "Database Systems",
+        "Software Engineering",
+        "Web Technologies",
+        "Computer Networks",
+      ],
     },
-    { 
-      degree: "Pre‑University Course (Science)", 
-      school: "Canara PU College", 
-      period: "2016 — 2018",
-      grade: "Percentage: 82%",
+    {
+      degree: "Pre‑University Course (Science)",
+      school: "Indraprastha PU College",
+      period: "2018 — 2020",
+      grade: "Percentage: 87.66%",
       location: "Mangaluru, India",
-      subjects: ["Physics", "Chemistry", "Mathematics", "Computer Science"]
-    }
+      logo: assets.indraprasthaLogo,
+      subjects: ["Physics", "Chemistry", "Mathematics", "Computer Science"],
+    },
   ];
 
   const certificates = [
     {
-      id: "niveus-internship",
-      title: "Software Engineer Intern",
-      issuer: "Niveus Solutions (NTT DATA)",
-      date: "Nov 2024 - May 2025",
-      description: "Successfully completed software engineering internship with focus on full-stack development and cloud technologies.",
-      skills: ["React", "Node.js", "GCP", "Agile Development"],
-      url: "https://media.licdn.com/dms/image/v2/D562DAQHuKH1is3Mkxw/profile-treasury-image-shrink_1280_1280/B56Zayqce.GoAQ-/0/1746754194415?e=1757142000&v=beta&t=MfrzHRpEn5HRQupEz7TK_bCFwnWiNh062jjpzr6vbU8"
+      id: "ACEC",
+      title: "Associate Cloud Engineer Certification",
+      issuer: "Google Cloud",
+      date: "July 21, 2025 - July 21, 2028",
+      description:
+        "Achieved Google Cloud Associate Cloud Engineer certification, validating expertise in deploying, managing, and securing scalable cloud solutions on GCP.",
+      skills: [
+        "Cloud Architecture",
+        "Cloud Computing",
+        "Cloud Security",
+        "Cloud Storage",
+        "Compute Engine",
+        "GKE",
+        "Google Cloud Platform (GCP)",
+        "Identity And Access Management (IAM)",
+        "Infrastructure as Code (IaC)",
+        "Networking",
+        "Pub/sub",
+        "SQL",
+      ],
+      image: assets.associate,
+      url: "https://www.credly.com/badges/48ac672d-cb2b-44cc-b67a-d72a9c697b3c/public_url",
     },
     {
       id: "evoluteiq-intern",
       title: "RPA Intern",
       issuer: "EvoluteIQ",
       date: "Feb 2024 - Apr 2024",
-      description: "Completed internship in Robotic Process Automation with hands-on experience in UiPath and business process optimization.",
+      description:
+        "Completed internship in Robotic Process Automation with hands-on experience in UiPath and business process optimization.",
       skills: ["UiPath", "Process Automation", "Python", "Business Analysis"],
-      url: "https://www.linkedin.com/in/ankushab/overlay/1717334641025/single-media-viewer?type=IMAGE"
-    }
+      image: assets.evoluteiqInternshipCert,
+      url: "https://www.linkedin.com/in/ankushab/overlay/1717334641025/single-media-viewer?type=IMAGE",
+    },
   ];
 
   const skills = {
     frontend: {
       title: "Frontend Development",
       icon: FiCode,
-      items: ["JavaScript", "TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "SCSS", "HTML5", "CSS3", "Responsive Design"]
+      items: [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Vue.js",
+        "Tailwind CSS",
+        "SCSS",
+        "HTML5",
+        "CSS3",
+        "Responsive Design",
+      ],
     },
     backend: {
       title: "Backend Development",
       icon: FiGitBranch,
-      items: ["Node.js", "Express.js", "REST APIs", "GraphQL", "Authentication", "JWT", "OAuth", "Microservices"]
+      items: [
+        "Node.js",
+        "Express.js",
+        "REST APIs",
+        "GraphQL",
+        "Authentication",
+        "JWT",
+        "OAuth",
+        "Microservices",
+      ],
     },
     databases: {
       title: "Databases",
       icon: FiGitBranch,
-      items: ["PostgreSQL", "MongoDB", "MySQL", "SQLite", "Redis", "Prisma", "Database Design", "Query Optimization"]
+      items: [
+        "PostgreSQL",
+        "MongoDB",
+        "MySQL",
+        "SQLite",
+        "Redis",
+        "Prisma",
+        "Database Design",
+        "Query Optimization",
+      ],
     },
     cloud: {
       title: "Cloud & DevOps",
       icon: FiGitBranch,
-      items: ["Google Cloud Platform", "AWS", "Docker", "Kubernetes", "CI/CD", "Cloud Run", "Firebase", "Vercel"]
+      items: [
+        "Google Cloud Platform",
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "Cloud Run",
+        "Firebase",
+        "Vercel",
+      ],
     },
     tools: {
       title: "Tools & Technologies",
       icon: FiGitBranch,
-      items: ["Git", "GitHub", "VS Code", "Figma", "ESLint", "Prettier", "Jest", "Testing Library", "Webpack", "Vite"]
-    }
+      items: [
+        "Git",
+        "GitHub",
+        "VS Code",
+        "Figma",
+        "ESLint",
+        "Prettier",
+        "Jest",
+        "Testing Library",
+        "Webpack",
+        "Vite",
+      ],
+    },
   };
 
   const personalInfo = {
@@ -127,14 +241,29 @@ const AboutPage = () => {
     timezone: "Asia/Kolkata (UTC+5:30)",
     languages: ["English", "Hindi", "Kannada", "Tulu"],
     availability: "Open to new opportunities",
-    workType: "Remote, Hybrid, On-site"
+    workType: "Remote, Hybrid, On-site",
   };
 
   const socialLinks = [
-    { icon: FiGithub, label: "GitHub", url: "https://github.com/BhatAnkush", color: "#333" },
-    { icon: FiLinkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/ankushab/", color: "#0077B5" },
-    { icon: FiMail, label: "Email", url: "mailto:ankushbhataab@gmail.com", color: "#EA4335" },
-    { icon: FiGlobe, label: "Portfolio", url: "#", color: "#00d4ff" }
+    {
+      icon: FiGithub,
+      label: "GitHub",
+      url: "https://github.com/BhatAnkush",
+      color: "#333",
+    },
+    {
+      icon: FiLinkedin,
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/ankushab/",
+      color: "#0077B5",
+    },
+    {
+      icon: FiMail,
+      label: "Email",
+      url: "mailto:ankushbhataab@gmail.com",
+      color: "#EA4335",
+    },
+    { icon: FiGlobe, label: "Portfolio", url: "#", color: "#00d4ff" },
   ];
 
   const tabs = [
@@ -142,7 +271,7 @@ const AboutPage = () => {
     { id: "experience", label: "Experience", icon: FiBriefcase },
     { id: "education", label: "Education", icon: FiBookOpen },
     { id: "skills", label: "Skills", icon: FiCode },
-    { id: "certificates", label: "Certificates", icon: FiAward }
+    { id: "certificates", label: "Certificates", icon: FiAward },
   ];
 
   return (
@@ -359,6 +488,32 @@ const AboutPage = () => {
             flex-wrap: wrap;
             gap: 15px;
           }
+
+          .experience-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+            padding: 4px;
+            flex-shrink: 0;
+            margin-right: 15px;
+          }
+
+          .experience-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+
+          .experience-details {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            flex-wrap: wrap;
+          }
           
           .experience-title {
             flex: 1;
@@ -396,6 +551,42 @@ const AboutPage = () => {
             color: var(--text-secondary);
             line-height: 1.6;
             margin: 15px 0;
+          }
+
+          .description-point {
+            color: var(--text-secondary);
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
+          }
+
+          .description-point:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+          }
+
+          .certificate-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: all 0.2s ease;
+          }
+
+          .certificate-badge:hover {
+            background-color: rgba(100, 255, 218, 0.2);
+            transform: translateY(-2px);
           }
           
           .achievements-list {
@@ -507,16 +698,34 @@ const AboutPage = () => {
           }
           
           .certificate-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.2);
             border-radius: 15px;
             padding: 25px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
           }
-          
-          .certificate-card::before {
+
+          .certificate-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.1);
+          }
+
+          .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+          }
+
+          .certificate-card:hover .certificate-image img {
+            transform: scale(1.05);
+          }          .certificate-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -628,7 +837,9 @@ const AboutPage = () => {
             />
             <div className="profile-info">
               <h1>Ankush Bhat</h1>
-              <div className="profile-title">Full Stack Developer & Cloud Engineer</div>
+              <div className="profile-title">
+                Full Stack Developer & Cloud Engineer
+              </div>
               <div className="profile-meta">
                 <div className="meta-chip">
                   <FiMapPin size={14} />
@@ -654,7 +865,7 @@ const AboutPage = () => {
                 ))}
               </div>
             </div>
-            <a href={assets.Ankush_Ananth_Bhat} className="download-resume" download>
+            <a href={assets.resume} className="download-resume" download>
               <FiDownload />
               Download Resume
             </a>
@@ -679,17 +890,20 @@ const AboutPage = () => {
             {activeTab === "overview" && (
               <div>
                 <p className="intro-text">
-                  I'm Ankush, a passionate Full Stack Developer and Cloud Engineer based in Mangaluru, India. 
-                  With over 2 years of experience in modern web development, I specialize in building scalable, 
-                  user-centric applications using React, Next.js, and cloud technologies. I'm committed to 
-                  writing clean, maintainable code and creating exceptional user experiences.
+                  I'm Ankush, a passionate Full Stack Developer and Cloud
+                  Engineer based in Mangaluru, India. With over 2 years of
+                  experience in modern web development, I specialize in building
+                  scalable, user-centric applications using React, Next.js, and
+                  cloud technologies. I'm committed to writing clean,
+                  maintainable code and creating exceptional user experiences.
                 </p>
                 <p className="intro-text">
-                  My journey in technology has taken me through various domains - from frontend development 
-                  to cloud engineering and process automation. I thrive in collaborative environments and 
-                  enjoy solving complex problems with innovative solutions.
+                  My journey in technology has taken me through various domains
+                  - from frontend development to cloud engineering and process
+                  automation. I thrive in collaborative environments and enjoy
+                  solving complex problems with innovative solutions.
                 </p>
-                
+
                 <div className="info-grid">
                   <div className="info-card">
                     <h4>Location & Timezone</h4>
@@ -717,33 +931,62 @@ const AboutPage = () => {
                 {experience.map((exp, index) => (
                   <div key={index} className="experience-item">
                     <div className="experience-header">
-                      <div className="experience-title">
-                        <h3>{exp.role}</h3>
-                        <div className="company">{exp.company}</div>
-                        <div className="experience-meta">
-                          <span>{exp.type}</span>
+                      <div className="experience-logo">
+                        <img
+                          src={exp.logo}
+                          alt={`${exp.company} logo`}
+                          onError={(e) => {
+                            e.currentTarget.src = "/placeholder.svg";
+                          }}
+                        />
+                      </div>
+                      <div className="experience-details">
+                        <div className="experience-title">
+                          <h3>{exp.title}</h3>
+                          <div className="company">{exp.company}</div>
+                          <div className="experience-meta">
+                            <span>{exp.employmentType}</span>
+                            <span>•</span>
+                            <span>{exp.location}</span>
+                          </div>
+                        </div>
+                        <div className="experience-period">
+                          <span>{exp.date}</span>
                           <span>•</span>
-                          <span>{exp.location}</span>
+                          <span>{exp.duration}</span>
                         </div>
                       </div>
-                      <div className="experience-period">{exp.period}</div>
-                    </div>
-                    
-                    <div className="experience-description">
-                      {exp.description}
                     </div>
 
-                    <ul className="achievements-list">
-                      {exp.achievements.map((achievement, i) => (
-                        <li key={i}>{achievement}</li>
+                    <div className="experience-description">
+                      {exp.description.map((desc, i) => (
+                        <div key={i} className="description-point">
+                          ▹ {desc}
+                        </div>
                       ))}
-                    </ul>
+                    </div>
 
                     <div className="tech-tags">
-                      {exp.technologies.map((tech, i) => (
-                        <span key={i} className="tech-tag">{tech}</span>
+                      {exp.skills.map((skill, i) => (
+                        <span key={i} className="tech-tag">
+                          {skill}
+                        </span>
                       ))}
                     </div>
+
+                    {exp.certificate && (
+                      <div className="certificate-link">
+                        <a
+                          href={exp.certificateUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="certificate-badge"
+                        >
+                          <FiAward />
+                          <span>{exp.certificate}</span>
+                        </a>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -754,26 +997,44 @@ const AboutPage = () => {
                 {education.map((edu, index) => (
                   <div key={index} className="experience-item">
                     <div className="experience-header">
-                      <div className="experience-title">
-                        <h3>{edu.degree}</h3>
-                        <div className="company">{edu.school}</div>
-                        <div className="experience-meta">
-                          <span>{edu.location}</span>
-                          <span>•</span>
-                          <span>{edu.grade}</span>
-                        </div>
+                      <div className="experience-logo">
+                        <img
+                          src={edu.logo}
+                          alt={`${edu.school} logo`}
+                          onError={(e) => {
+                            e.currentTarget.src = "/placeholder.svg";
+                          }}
+                        />
                       </div>
-                      <div className="experience-period">{edu.period}</div>
+                      <div className="experience-details">
+                        <div className="experience-title">
+                          <h3>{edu.degree}</h3>
+                          <div className="company">{edu.school}</div>
+                          <div className="experience-meta">
+                            <span>{edu.location}</span>
+                            <span>•</span>
+                            <span>{edu.grade}</span>
+                          </div>
+                        </div>
+                        <div className="experience-period">{edu.period}</div>
+                      </div>
                     </div>
-                    
+
                     {edu.coursework && (
                       <div>
-                        <h4 style={{ color: 'var(--accent-color)', margin: '15px 0 10px 0' }}>
+                        <h4
+                          style={{
+                            color: "var(--accent-color)",
+                            margin: "15px 0 10px 0",
+                          }}
+                        >
                           Key Coursework:
                         </h4>
                         <div className="tech-tags">
                           {edu.coursework.map((course, i) => (
-                            <span key={i} className="tech-tag">{course}</span>
+                            <span key={i} className="tech-tag">
+                              {course}
+                            </span>
                           ))}
                         </div>
                       </div>
@@ -781,12 +1042,19 @@ const AboutPage = () => {
 
                     {edu.subjects && (
                       <div>
-                        <h4 style={{ color: 'var(--accent-color)', margin: '15px 0 10px 0' }}>
+                        <h4
+                          style={{
+                            color: "var(--accent-color)",
+                            margin: "15px 0 10px 0",
+                          }}
+                        >
                           Subjects:
                         </h4>
                         <div className="tech-tags">
                           {edu.subjects.map((subject, i) => (
-                            <span key={i} className="tech-tag">{subject}</span>
+                            <span key={i} className="tech-tag">
+                              {subject}
+                            </span>
                           ))}
                         </div>
                       </div>
@@ -808,7 +1076,9 @@ const AboutPage = () => {
                     </div>
                     <div className="skill-items">
                       {category.items.map((skill, i) => (
-                        <span key={i} className="skill-item">{skill}</span>
+                        <span key={i} className="skill-item">
+                          {skill}
+                        </span>
                       ))}
                     </div>
                   </div>
@@ -820,6 +1090,15 @@ const AboutPage = () => {
               <div className="certificates-grid">
                 {certificates.map((cert, index) => (
                   <div key={index} className="certificate-card">
+                    <div className="certificate-image">
+                      <img
+                        src={cert.image}
+                        alt={`${cert.title} certificate`}
+                        onError={(e) => {
+                          e.currentTarget.src = "/placeholder.svg";
+                        }}
+                      />
+                    </div>
                     <div className="certificate-header">
                       <div>
                         <h3 className="certificate-title">{cert.title}</h3>
@@ -830,22 +1109,24 @@ const AboutPage = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="certificate-description">
                       {cert.description}
                     </div>
 
                     <div className="tech-tags">
                       {cert.skills.map((skill, i) => (
-                        <span key={i} className="tech-tag">{skill}</span>
+                        <span key={i} className="tech-tag">
+                          {skill}
+                        </span>
                       ))}
                     </div>
 
                     {cert.url && (
-                      <a 
-                        href={cert.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="certificate-link"
                       >
                         <FiExternalLink size={14} />

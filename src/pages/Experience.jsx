@@ -1,4 +1,5 @@
 import { useState } from "react";
+import assets from "../components/Assets";
 
 const Experience = () => {
   const jobs = [
@@ -47,8 +48,7 @@ const Experience = () => {
         "Collaborated with cross-functional teams to gather requirements, debug issues, and implement front-end and back-end solutions aligned with needs of the project.",
       ],
       certificate: "Internship completion certificate",
-      certificateUrl:
-        "https://media.licdn.com/dms/image/v2/D562DAQHuKH1is3Mkxw/profile-treasury-image-shrink_1280_1280/B56Zayqce.GoAQ-/0/1746754194415?e=1757142000&v=beta&t=MfrzHRpEn5HRQupEz7TK_bCFwnWiNh062jjpzr6vbU8",
+      certificateUrl: assets.niveus,
     },
     {
       title: "Intern",
@@ -70,8 +70,8 @@ const Experience = () => {
         "Collaborated with senior engineers to streamline data flows and automate repetitive tasks, reducing manual effort by over 30%.",
       ],
       certificate: "Internship completion certificate",
-      certificateUrl:
-        "https://www.linkedin.com/in/ankushab/overlay/1717334641025/single-media-viewer?type=IMAGE&profileId=ACoAADPo6NwBPPcuFuKIlTf2LzLGleqkRp6GZn8&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bq1fEv6KxTD%2BJ9XrTuN3gNA%3D%3D"    },
+      certificateUrl: assets.evalute,
+    },
   ];
 
   // State to track expanded skill lists
@@ -315,10 +315,24 @@ const Experience = () => {
           `}
         </style>
 
-        <h2 className="section-title fade-in" style={{ alignItems: "baseline", gap: 8 }}>
+        <h2
+          className="section-title fade-in"
+          style={{ alignItems: "baseline", gap: 8 }}
+        >
           <span className="number">02.</span>
-          <span className="gradient-text" style={{ fontWeight: 800 }} id="work">Work</span>
-          <span aria-hidden style={{ flex: 1, height: 2, background: "linear-gradient(90deg, transparent, var(--accent-color))", borderRadius: 2 }}></span>
+          <span className="gradient-text" style={{ fontWeight: 800 }} id="work">
+            Work
+          </span>
+          <span
+            aria-hidden
+            style={{
+              flex: 1,
+              height: 2,
+              background:
+                "linear-gradient(90deg, transparent, var(--accent-color))",
+              borderRadius: 2,
+            }}
+          ></span>
         </h2>
 
         <div className="experience-container fade-in">

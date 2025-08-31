@@ -627,7 +627,7 @@ const Contact = () => {
               className="cta-btn cta-primary"
             >
               <FiMail />
-              Email Me Directly
+              Email Me
             </a>
             <a href="/work" className="cta-btn cta-secondary">
               <FiGrid />

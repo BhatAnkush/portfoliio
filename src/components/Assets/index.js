@@ -3,6 +3,7 @@ import resume from "./Ankush_Ananth_Bhat.pdf";
 import mentor from "./mentor.png";
 import socio from "./socio.svg";
 import suny from "./suny.png";
+import abundance from "./abundance.png";
 import associate from "./associate.png"; // Replace with actual certificate image
 import evoluteiqInternshipCert from "./socio.svg"; // Replace with actual certificate image
 import sahyadriLogo from "./sahyadri.png"; // Replace with actual Sahyadri college logo
@@ -13,6 +14,7 @@ const assets = {
   mentor,
   socio,
   suny,
+  abundance,
   associate,
   evoluteiqInternshipCert,
   // College logos

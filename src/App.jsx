@@ -6,7 +6,6 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Footer from './pages/Footer';
 import CaseStudy from './pages/CaseStudy';
-import Certificates from './pages/Certificates';
 import AboutPage from './pages/AboutPage';
 import ProjectsIndex from './pages/ProjectsIndex';
 
@@ -81,7 +80,6 @@ function App() {
               <Route path="/work" element={<ProjectsIndex />} />
               <Route path="/contact" element={<SectionHome targetId="contact" />} />
               <Route path="/case-studies/:id" element={<CaseStudy />} />
-              <Route path="/certificates" element={<Certificates />} />
             </Routes>
           </main>
           <Footer />

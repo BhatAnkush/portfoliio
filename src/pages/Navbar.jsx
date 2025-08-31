@@ -74,7 +74,7 @@ const Navbar = () => {
             justifyContent: "center",
             alignItems: "center",
             transition: "var(--transition)",
-            }}
+          }}
         >
           <div
             className="logo"
@@ -247,7 +247,7 @@ const Navbar = () => {
         <nav
           style={{
             position: "fixed",
-            bottom: 20,
+            bottom: 16,
             left: "50%",
             transform: "translateX(-50%)",
             zIndex: 100,
@@ -263,60 +263,39 @@ const Navbar = () => {
               margin: 0,
               padding: 0,
               listStyle: "none",
-              background:
-                theme === "light"
-                  ? "rgba(255,255,255,0.95)"
-                  : "rgba(255,255,255,0.08)",
-              backdropFilter: "blur(15px)",
-              border:
-                theme === "light"
-                  ? "1px solid rgba(0,0,0,0.06)"
-                  : "1px solid rgba(255,255,255,0.15)",
-              boxShadow:
-                theme === "light"
-                  ? "0 8px 32px rgba(0,0,0,0.12)"
-                  : "0 8px 32px rgba(0,0,0,0.3)",
-              borderRadius: "24px",
-              height: "48px",
+              background: "rgba(255,255,255,0.95)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid rgba(0,0,0,0.06)",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+              borderRadius: "20px",
+              height: "56px",
               alignItems: "center",
               justifyContent: "center",
-              padding: "0 8px",
-              gap: "4px",
+              padding: "0 12px",
+              gap: "6px",
+              minWidth: "280px",
             }}
             className="nav-links-mobile"
           >
             {/* Home icon button */}
-            <li style={{ padding: "6px" }}>
+            <li style={{ padding: "4px" }}>
               <Link
                 to="/"
                 style={{
-                  width: 36,
-                  height: 36,
+                  width: 40,
+                  height: 40,
                   borderRadius: 9999,
                   display: "grid",
                   placeItems: "center",
-                  background:
-                    theme === "light" ? "#efefef" : "rgba(0,0,0,0.08)",
-                  color: "var(--text-color)",
+                  background: "#f5f5f5",
+                  color: "#333",
                   textDecoration: "none",
+                  transition: "all 0.2s ease",
                 }}
               >
-                <FiHome />
+                <FiHome size={20} />
               </Link>
             </li>
-
-            {/* separator */}
-            <li
-              aria-hidden
-              style={{
-                width: 1,
-                height: 24,
-                background:
-                  theme === "light"
-                    ? "rgba(0,0,0,0.08)"
-                    : "rgba(255,255,255,0.15)",
-              }}
-            />
 
             {/* About */}
             <li>
@@ -325,14 +304,17 @@ const Navbar = () => {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: 8,
-                  padding: "8px 12px",
+                  gap: 6,
+                  padding: "10px 14px",
                   borderRadius: 9999,
-                  color: "var(--text-color)",
+                  color: "#333",
                   textDecoration: "none",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  transition: "all 0.2s ease",
                 }}
               >
-                <FiUser /> <span>About</span>
+                <FiUser size={18} /> <span>About</span>
               </Link>
             </li>
 
@@ -343,49 +325,39 @@ const Navbar = () => {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: 8,
-                  padding: "8px 12px",
+                  gap: 6,
+                  padding: "10px 14px",
                   borderRadius: 9999,
-                  color: "var(--text-color)",
+                  color: "#333",
                   textDecoration: "none",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  transition: "all 0.2s ease",
                 }}
               >
-                <FiGrid /> <span>Work</span>
+                <FiGrid size={18} /> <span>Work</span>
               </Link>
             </li>
 
-            {/* separator */}
-            <li
-              aria-hidden
-              style={{
-                width: 1,
-                height: 24,
-                background:
-                  theme === "light"
-                    ? "rgba(0,0,0,0.08)"
-                    : "rgba(255,255,255,0.15)",
-              }}
-            />
-
             {/* Theme toggle inside pill */}
-            <li>
+            <li style={{ padding: "4px" }}>
               <button
                 aria-label="Toggle theme"
                 onClick={toggleTheme}
                 style={{
-                  width: 36,
-                  height: 36,
+                  width: 40,
+                  height: 40,
                   borderRadius: 9999,
                   display: "grid",
                   placeItems: "center",
-                  background:
-                    theme === "light" ? "#efefef" : "rgba(0,0,0,0.08)",
-                  color: "var(--text-color)",
+                  background: "#f5f5f5",
+                  color: "#333",
                   border: "none",
                   cursor: "pointer",
+                  transition: "all 0.2s ease",
                 }}
               >
-                {theme === "light" ? <FiMoon /> : <FiSun />}
+                {theme === "light" ? <FiMoon size={18} /> : <FiSun size={18} />}
               </button>
             </li>
           </ul>

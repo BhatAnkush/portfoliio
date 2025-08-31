@@ -1,29 +1,44 @@
 import { useState } from "react";
-import { FiSend, FiMail, FiPhone, FiMapPin, FiLinkedin, FiGithub, FiInstagram } from "react-icons/fi";
+import {
+  FiSend,
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiLinkedin,
+  FiGithub,
+  FiUsers,
+  FiGrid,
+} from "react-icons/fi";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
   const [status, setStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus("Sending message...");
-    
+
     // Simulate form submission
     setTimeout(() => {
-      const params = new URLSearchParams({ 
-        subject: form.subject || `Message from ${form.name}`, 
-        body: `From: ${form.name} (${form.email})\n\nMessage:\n${form.message}` 
+      const params = new URLSearchParams({
+        subject: form.subject || `Message from ${form.name}`,
+        body: `From: ${form.name} (${form.email})\n\nMessage:\n${form.message}`,
       });
       window.location.href = `mailto:ankushbhataab@gmail.com?${params.toString()}`;
       setStatus("Message sent successfully!");
       setForm({ name: "", email: "", subject: "", message: "" });
       setIsSubmitting(false);
-      
+
       setTimeout(() => setStatus(""), 3000);
     }, 1500);
   };
@@ -33,26 +48,35 @@ const Contact = () => {
       icon: FiMail,
       label: "Email",
       value: "ankushbhataab@gmail.com",
-      link: "mailto:ankushbhataab@gmail.com"
+      link: "mailto:ankushbhataab@gmail.com",
     },
     {
       icon: FiPhone,
       label: "Phone",
       value: "+91 6360751937",
-      link: "tel:+916360751937"
+      link: "tel:+916360751937",
     },
     {
       icon: FiMapPin,
       label: "Location",
       value: "Available for Remote Work",
-      link: null
-    }
+      link: null,
+    },
   ];
 
   const socialLinks = [
-    { icon: FiLinkedin, label: "LinkedIn", link: "https://linkedin.com/in/ankush-bhat", color: "#0077B5" },
-    { icon: FiGithub, label: "GitHub", link: "https://github.com/BhatAnkush", color: "#333" },
-    { icon: FiInstagram, label: "Instagram", link: "https://instagram.com/ankushbhat", color: "#E4405F" }
+    {
+      icon: FiLinkedin,
+      label: "LinkedIn",
+      link: "https://linkedin.com/in/ankush-bhat",
+      color: "#0077B5",
+    },
+    {
+      icon: FiGithub,
+      label: "GitHub",
+      link: "https://github.com/BhatAnkush",
+      color: "#333",
+    },
   ];
 
   return (
@@ -423,8 +447,9 @@ const Contact = () => {
             Ready to bring your ideas to life? Let's discuss your next project.
           </p>
           <p className="contact-description">
-            I'm always interested in new opportunities, collaborations, and challenging projects. 
-            Whether you have a question or just want to say hi, feel free to reach out!
+            I'm always interested in new opportunities, collaborations, and
+            challenging projects. Whether you have a question or just want to
+            say hi, feel free to reach out!
           </p>
         </div>
 
@@ -432,12 +457,15 @@ const Contact = () => {
           <div className="contact-form-section">
             <h2 className="form-title">Send a Message</h2>
             <p className="form-subtitle">
-              Fill out the form below and I'll get back to you as soon as possible.
+              Fill out the form below and I'll get back to you as soon as
+              possible.
             </p>
 
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label className="form-label" htmlFor="name">Full Name *</label>
+                <label className="form-label" htmlFor="name">
+                  Full Name *
+                </label>
                 <input
                   id="name"
                   name="name"
@@ -451,7 +479,9 @@ const Contact = () => {
               </div>
 
               <div className="form-group">
-                <label className="form-label" htmlFor="email">Email Address *</label>
+                <label className="form-label" htmlFor="email">
+                  Email Address *
+                </label>
                 <input
                   id="email"
                   name="email"
@@ -465,7 +495,9 @@ const Contact = () => {
               </div>
 
               <div className="form-group">
-                <label className="form-label" htmlFor="subject">Subject</label>
+                <label className="form-label" htmlFor="subject">
+                  Subject
+                </label>
                 <input
                   id="subject"
                   name="subject"
@@ -478,7 +510,9 @@ const Contact = () => {
               </div>
 
               <div className="form-group">
-                <label className="form-label" htmlFor="message">Message *</label>
+                <label className="form-label" htmlFor="message">
+                  Message *
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -491,8 +525,8 @@ const Contact = () => {
                 />
               </div>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="submit-btn"
                 disabled={isSubmitting}
               >
@@ -501,7 +535,13 @@ const Contact = () => {
               </button>
 
               {status && (
-                <div className={`status-message ${status.includes('success') ? 'status-success' : 'status-sending'}`}>
+                <div
+                  className={`status-message ${
+                    status.includes("success")
+                      ? "status-success"
+                      : "status-sending"
+                  }`}
+                >
                   {status}
                 </div>
               )}
@@ -515,7 +555,7 @@ const Contact = () => {
                 Contact Information
               </h3>
               <div className="contact-methods">
-                {contactInfo.map((info, index) => (
+                {contactInfo.map((info, index) =>
                   info.link ? (
                     <a key={index} href={info.link} className="contact-method">
                       <div className="method-icon">
@@ -537,17 +577,24 @@ const Contact = () => {
                       </div>
                     </div>
                   )
-                ))}
+                )}
               </div>
             </div>
 
             <div className="contact-info-card">
               <h3 className="info-title">
-                <FiLinkedin />
+                <FiUsers />
                 Connect With Me
               </h3>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '20px', lineHeight: 1.5 }}>
-                Follow me on social media for updates on my latest projects and tech insights.
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  marginBottom: "20px",
+                  lineHeight: 1.5,
+                }}
+              >
+                Follow me on social media for updates on my latest projects and
+                tech insights.
               </p>
               <div className="social-links">
                 {socialLinks.map((social, index) => (
@@ -558,7 +605,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="social-link"
                     title={social.label}
-                    style={{ '--hover-color': social.color }}
+                    style={{ "--hover-color": social.color }}
                   >
                     <social.icon />
                   </a>
@@ -571,15 +618,19 @@ const Contact = () => {
         <div className="cta-section">
           <h2 className="cta-title">Ready to Start Your Project?</h2>
           <p className="cta-text">
-            I'm currently available for new projects and collaborations. 
-            Let's discuss how we can work together to bring your vision to life.
+            I'm currently available for new projects and collaborations. Let's
+            discuss how we can work together to bring your vision to life.
           </p>
           <div className="cta-buttons">
-            <a href="mailto:ankushbhataab@gmail.com" className="cta-btn cta-primary">
+            <a
+              href="mailto:ankushbhataab@gmail.com"
+              className="cta-btn cta-primary"
+            >
               <FiMail />
               Email Me Directly
             </a>
             <a href="/work" className="cta-btn cta-secondary">
+              <FiGrid />
               View My Work
             </a>
           </div>
